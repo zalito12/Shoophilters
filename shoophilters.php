@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Shoophilters: Filters for Woocommerce
  * Description:       Blocks to extend default woocomerce filters fields.
- * Plugin URI:        https://
+ * Plugin URI:        https://github.com/zalito12/Shoophilters
  * Requires at least: 6.1
  * Requires PHP:      8.0
  * Version:           1.0.0
