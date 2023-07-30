@@ -3,9 +3,9 @@
  * Plugin Name:       Woofilters: Filters for Woocommerce
  * Description:       Blocks to extend default woocomerce filters fields.
  * Requires at least: 6.1
- * Requires PHP:      7.0
- * Version:           0.2.0
- * Author:            The WordPress Contributors
+ * Requires PHP:      8.0
+ * Version:           1.0.0
+ * Author:            gon123
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       woofilters
@@ -18,7 +18,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 define( 'WOOFILTERS_PLUGIN_FULL_NAME', 'Woofilters' );
-define( 'WOOFILTERS_VERSION', '0.2.0' );
+define( 'WOOFILTERS_VERSION', '1.0.0' );
 define( 'WOOFILTERS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WOOFILTERS_PATH_ADMIN', plugin_dir_path( __FILE__ ) . 'admin/' );
 

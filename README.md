@@ -36,26 +36,12 @@ This are the new blocks that you will find after installation:
 
 # Installation
 
-This section describes how to install the plugin and get it working.
-
 1. Upload the plugin files to the `/wp-content/plugins/woofilters` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 ` Easy, as every plugin. `
 
-<!-- == Frequently Asked Questions ==
-
-= A question that someone might have =
-
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma. -->
-
-<!-- # Screenshots -->
-
 # Changelog
 
-### 0.2.0
+### 1.0.0
 * Release
