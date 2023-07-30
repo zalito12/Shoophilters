@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "woofilters/product-price",
+	"version": "0.1.0",
+	"title": "Woofilters: Product price filter",
+	"category": "woofilters",
+	"icon": "money-alt",
+	"description": "Add price filters for your shop",
+	"keywords": [ "Woofilters", "WooCommerce", "Price" ],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "woofilters",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"attributes": {
+		"showTotal": {
+			"enum": ["never", "always", "current"],
+			"default": "never"
+		},
+		"endsValue": {
+			"enum": ["fixed", "calculated"],
+			"default": "fixed"
+		},
+		"minValue": {
+			"type": "number",
+			"default": 0
+		},
+		"maxValue": {
+			"type": "number",
+			"default": 500
+		},
+		"minRange": {
+			"type": "number",
+			"default": 0
+		},
+		"maxRange": {
+			"type": "number",
+			"default": 0
+		},
+		"step": {
+			"type": "number",
+			"default": 100
+		},
+		"filtering": {
+			"type": "object",
+			"default": {
+				"navigation": "standard",
+				"group": "default"
+			}
+		}
+	}
+}

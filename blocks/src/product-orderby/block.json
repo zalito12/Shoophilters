@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "woofilters/product-orderby",
+	"version": "0.1.0",
+	"title": "Woofilters: Order by filter",
+	"category": "woofilters",
+	"icon": "randomize",
+	"description": "Add an order by filter",
+	"keywords": ["Woofilters", "WooCommerce", "Filter", "Order"],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "woofilters",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:render.php",
+	"attributes": {
+		"type": {
+			"enum": ["list", "select"],
+			"default": "list"
+		},
+		"showAlways": {
+			"type": "boolean",
+			"default": "true"
+		},
+		"filtering": {
+			"type": "object",
+			"default": {
+				"navigation": "standard",
+				"group": "default"
+			}
+		}
+	}
+}

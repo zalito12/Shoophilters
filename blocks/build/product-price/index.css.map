@@ -1,0 +1,1 @@
+{"version":3,"file":"product-price/index.css","mappings":";;;AAAA;EACC;EACA;EACA;AACD,C","sources":["webpack://woofilters/./blocks/src/product-price/editor.scss"],"sourcesContent":[".woofilters-slider-range {\n\tposition: relative;\n\tmin-height: 2em;\n\tbackground: #aaa;\n}\n"],"names":[],"sourceRoot":""}

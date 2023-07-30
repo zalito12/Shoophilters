@@ -1,0 +1,43 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./blocks/src/responsive-container/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.woofilters-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.woofilters-group .woofilters-group-checkbox:last-child {
+  border-radius: 0px 3px 3px 0px;
+}
+
+.woofilters-group .woofilters-group-checkbox:first-child {
+  border-radius: 3px 0px 0px 3px;
+}
+
+.woofilters-group .woofilters-group-checkbox {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #2271b1;
+  display: flex;
+  justify-content: center;
+  flex: 1 1 0;
+  background: #fff;
+  padding: 0.6em 0;
+  cursor: pointer;
+  margin-left: -1px;
+  color: #2271b1;
+}
+
+.woofilters-group-checkbox.active {
+  color: #fff;
+  background: #2271b1;
+}
+
+/*# sourceMappingURL=index.css.map*/

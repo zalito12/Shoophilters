@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "woofilters/responsive-container",
+	"version": "0.1.0",
+	"title": "Woofilters: Responsive container",
+	"category": "woofilters",
+	"icon": "smartphone",
+	"description": "A configurable container to change visibility with screen size",
+	"keywords": ["Woofilters", "WooCommerce", "Container", "Responsive"],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "woofilters",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"blockId": {
+      "type": "string",
+			"default": ""
+   },
+		"visibility": {
+			"type": "object",
+			"default": {
+				"desktop": true,
+				"tablet": true,
+				"mobile": true
+			}
+		},
+		"breakpoint": {
+			"type": "object",
+			"default": {
+				"tablet": "921",
+				"mobile": "544"
+			}
+		}
+	}
+}

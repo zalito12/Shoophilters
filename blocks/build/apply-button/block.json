@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "woofilters/apply-button",
+  "version": "0.1.0",
+  "title": "Woofilters: Apply filters button",
+  "category": "woofilters",
+  "icon": "button",
+  "description": "Add attribute filters for your shop",
+  "keywords": [
+    "Woofilters",
+    "WooCommerce",
+    "Filter",
+    "Button"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "woofilters",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "group": {
+      "type": "string",
+      "default": "default"
+    },
+    "type": {
+      "enum": [
+        "button",
+        "text"
+      ],
+      "default": "button"
+    },
+    "text": {
+      "type": "string",
+      "default": "Apply Filters"
+    }
+  }
+}

@@ -1,0 +1,232 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+/* Default widget css */
+.woofilters-loading-container {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 99999;
+	justify-content: center;
+	align-items: center;
+	background: rgb(255 255 255 / 50%);
+	pointer-events: all;
+}
+
+.woofilters-loading-image {
+	display: block;
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	z-index: 99999;
+	width: 125px;
+	pointer-events: none;
+}
+
+ul.woofilters-grid {
+	list-style: none;
+	margin: 0;
+}
+
+ul.woofilters-grid {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+/* Custom radion button */
+.woofilters-item-radio-label {
+	position: relative;
+	display: flex;
+}
+
+.woofilters-item-radio-label .woofilters-radio-filter[type="radio"] {
+	position: static;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	border: 2px solid #50575e;
+	border-radius: 0.75em;
+	box-sizing: border-box;
+	font-size: 1em;
+	height: 1.5em;
+	margin: 0 1em 0 0;
+	min-height: 1.5em;
+	min-width: 1.5em;
+	overflow: hidden;
+	position: static;
+	vertical-align: middle;
+	width: 1.5em;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.woofilters-item-radio-label
+	.woofilters-radio-filter[type="radio"]:not(:checked)
+	+ .woofilters-radio-filter-mark {
+	display: none;
+}
+
+.woofilters-item-radio-label
+	.woofilters-radio-filter[type="radio"]
+	+ .woofilters-radio-filter-mark {
+	display: block;
+	height: 1em;
+	width: 1em;
+	background-color: #50575e;
+	border-radius: 50%;
+	display: inline-block;
+	position: absolute;
+	left: 0.25em;
+	top: 0.25em;
+}
+
+/* Buttons */
+.woofilters-filter-remove-button {
+	cursor: pointer;
+}
+
+/* Category list */
+ul.woofilters-category-list
+	li.woofilters-category-item
+	.woofilters-category-count {
+	display: block;
+	flex: 1 1 0;
+	text-align: right;
+}
+ul.woofilters-category-list
+	li.woofilters-category-item
+	.woofilters-category-count.woofilters-category-count-current {
+	display: none;
+}
+ul.woofilters-category-list
+	li.woofilters-category-item.current
+	.woofilters-category-count.woofilters-category-count-current {
+	display: initial;
+}
+li.woofilters-category-item.current {
+	font-weight: 600;
+}
+li.woofilters-category-item a {
+	color: inherit;
+}
+ul.woofilters-category-list {
+	list-style: none;
+	margin: 0;
+}
+
+/* Attribute list */
+
+ul.woofilters-attributes-list
+	li.woofilters-attribute-item
+	.woofilters-attribute-count {
+	float: right;
+}
+ul.woofilters-attributes-list
+	li.woofilters-attribute-item
+	.woofilters-attribute-count.woofilters-attribute-count-current {
+	display: none;
+}
+ul.woofilters-attributes-list
+	li.woofilters-attribute-item.current
+	.woofilters-attribute-count.woofilters-attribute-count-current {
+	display: initial;
+}
+li.woofilters-attribute-item.current {
+	font-weight: 600;
+}
+li.woofilters-attribute-item .wc-block-components-checkbox {
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+li.woofilters-attribute-item .wc-block-components-checkbox > * {
+	pointer-events: none;
+}
+li.woofilters-attribute-item
+	.wc-block-components-checkbox
+	input[type="checkbox"],
+li.woofilters-attribute-item
+	.wc-block-components-checkbox
+	input[type="checkbox"]:checked {
+	background-color: transparent;
+}
+
+ul.woofilters-attributes-list {
+	width: 100%;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin: 0;
+}
+ul.woofilters-attributes-list.woofilters-grid {
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+ul.woofilters-attributes-list.woofilters-grid li.woofilters-attribute-item {
+	width: 100%;
+	margin-right: 0;
+}
+
+/* Order */
+ul.woofilters-orderby {
+	width: 100%;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin: 0;
+}
+
+li.woofilters-orderby-item:not(.current) .woofilters-orderby-name {
+	cursor: pointer;
+}
+
+li.woofilters-orderby-item.current {
+	font-weight: 600;
+}
+
+.woofilters-orderby select.woofilters-orderby-select {
+	width: 100%;
+	background-color: transparent;
+	border: transparent;
+	border-radius: 0;
+}
+
+/* Overwrite jqueryui slider */
+span.ui-slider-handle {
+	display: none;
+}
+
+.ui-widget.ui-widget-content {
+	height: 3em;
+	border: none;
+	background: #aaa;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+	background: #333;
+	opacity: 0.5;
+}
+
+.woofilters-slider-range-label {
+	color: #fff;
+	font-weight: 600;
+	font-size: 1.2rem;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+	position: absolute;
+}
