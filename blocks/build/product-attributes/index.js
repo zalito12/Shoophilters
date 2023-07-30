@@ -58,9 +58,9 @@ const options = [{
 /**
  * LoadTypeControl component.
  *
- * @param root0
- * @param root0.attributes
- * @param root0.onChange
+ * @param {LoadTypeControl} root0            The root.
+ * @param {Array}           root0.attributes Attributes.
+ * @param {Function}        root0.onChange   On change callback.
  */
 const LoadTypeControl = ({
   attributes,
@@ -71,11 +71,11 @@ const LoadTypeControl = ({
     group
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filtering settings', 'woofilters'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filtering settings', 'shoophilters'),
     initialOpen: true
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filter navigation type', 'woofilters'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Choose between url navigation, ajax navigation or delegate filters to a button.', 'woofilters'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filter navigation type', 'shoophilters'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Choose between url navigation, ajax navigation or delegate filters to a button.', 'shoophilters'),
     value: navigation,
     onChange: val => onChange({
       navigation: val,
@@ -83,8 +83,8 @@ const LoadTypeControl = ({
     }),
     options: options
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filter group id', 'woofilters'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('The filter group id to apply. All filters in the same group will be applied and reseted at the same time.', 'woofilters'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filter group id', 'shoophilters'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('The filter group id to apply. All filters in the same group will be applied and reseted at the same time.', 'shoophilters'),
     type: "text",
     value: group,
     onChange: val => onChange({
@@ -94,6 +94,45 @@ const LoadTypeControl = ({
   })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LoadTypeControl);
+
+/***/ }),
+
+/***/ "./blocks/src/controls/types.js":
+/*!**************************************!*\
+  !*** ./blocks/src/controls/types.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   totalOptions: () => (/* binding */ totalOptions),
+/* harmony export */   valueOptions: () => (/* binding */ valueOptions)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+
+const totalOptions = [{
+  value: 'never',
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Never', 'shoophilters')
+}, {
+  value: 'always',
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Always', 'shoophilters')
+}, {
+  value: 'current',
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Only when selected', 'shoophilters')
+}];
+const valueOptions = [{
+  value: 'fixed',
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Fixed', 'shoophilters')
+}, {
+  value: 'calculated',
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Calculated', 'shoophilters')
+}];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  totalOptions,
+  valueOptions
+});
 
 /***/ }),
 
@@ -123,6 +162,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
 /* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _controls_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../controls/types */ "./blocks/src/controls/types.js");
+
 
 
 
@@ -143,23 +184,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {WPElement} Element to render.
  */
-const totalOptions = [{
-  value: 'never',
-  label: 'Never'
-}, {
-  value: 'always',
-  label: 'Always'
-}, {
-  value: 'current',
-  label: 'Only when selected'
-}];
-const styleOptions = [{
-  value: 'list',
-  label: 'List'
-}, {
-  value: 'grid',
-  label: 'Grid'
-}];
+
 function Edit(props) {
   const {
     attributes,
@@ -170,7 +195,7 @@ function Edit(props) {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToolbarGroup, {
       controls: [{
         icon: 'edit',
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Edit', 'woofilters'),
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Edit', 'shoophilters'),
         onClick: () => setAttributes({
           taxonomy: ''
         }),
@@ -178,47 +203,34 @@ function Edit(props) {
       }]
     }));
   };
-  const gridConfigControls = () => {
-    if ('grid' !== attributes.style) {
-      return;
-    }
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
-      label: "Items per row",
-      type: "number",
-      value: attributes.rowSize,
-      onChange: val => setAttributes({
-        rowSize: val
-      })
-    }));
-  };
   const getSideControls = () => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Attribute settings', 'woofilters'),
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Attribute settings', 'shoophilters'),
       initialOpen: true
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
-      label: "Show empty attributes",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Show empty attributes', 'shoophilters'),
       checked: attributes.showEmpty,
       onChange: val => setAttributes({
         showEmpty: val
       })
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
-      label: "Show product count",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Show product count', 'shoophilters'),
       value: attributes.showTotal,
       onChange: val => setAttributes({
         showTotal: val
       }),
-      options: totalOptions
+      options: _controls_types__WEBPACK_IMPORTED_MODULE_9__.totalOptions
     }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('List settings', 'woofilters'),
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('List settings', 'shoophilters'),
       initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.RadioControl, {
-      label: "Style",
-      selected: attributes.style,
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Items per row', 'shoophilters'),
+      type: "number",
+      value: attributes.rowSize,
       onChange: val => setAttributes({
-        style: val
-      }),
-      options: styleOptions
-    })), gridConfigControls()), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controls_load_type_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        rowSize: val
+      })
+    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controls_load_type_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
       attributes: attributes.filtering,
       onChange: value => setAttributes({
         filtering: value
@@ -231,7 +243,7 @@ function Edit(props) {
       label: t.labels.singular_name
     }));
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.RadioControl, {
-      label: "Select attribute to filter",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select attribute to filter', 'shoophilters'),
       selected: attributes.taxonomy,
       onChange: val => setAttributes({
         taxonomy: val
@@ -242,21 +254,22 @@ function Edit(props) {
   const taxonomies = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_7__.useSelect)(select => select(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_8__.store).getTaxonomies({
     type: 'product'
   }));
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   if (attributes.taxonomy === '' || isEditing) {
     isEditing = true;
     if (!taxonomies) {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-        ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
+        ...blockProps
       }, "Loading attributes...");
     }
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
+      ...blockProps
     }, getSelectAttributeControl(taxonomies));
   }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
+    ...blockProps
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, getBlockControls(), getSideControls(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5___default()), {
-    block: "woofilters/product-attributes",
+    block: "shoophilters/product-attributes",
     attributes: props.attributes
   }))));
 }
@@ -421,7 +434,7 @@ module.exports = window["wp"]["serverSideRender"];
   \**************************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"woofilters/product-attributes","version":"0.1.0","title":"Woofilters: Product attributes filter","category":"woofilters","icon":"grid-view","description":"Add attribute filters for your shop","keywords":["Woofilters","WooCommerce"],"supports":{"html":false},"textdomain":"woofilters","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","attributes":{"showTotal":{"enum":["never","always","current"],"default":"never"},"style":{"enum":["list","grid"],"default":"grid"},"rowSize":{"type":"string","default":"3"},"showEmpty":{"type":"boolean","default":false},"taxonomy":{"type":"string","default":""},"filtering":{"type":"object","default":{"navigation":"standard","group":"default"}}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"shoophilters/product-attributes","version":"0.1.0","title":"Shoophilters: Product attributes filter","category":"shoophilters","icon":"grid-view","description":"Add attribute filters for your shop","keywords":["Shoophilters","WooCommerce"],"supports":{"html":false},"textdomain":"shoophilters","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","attributes":{"showTotal":{"enum":["never","always","current"],"default":"never"},"rowSize":{"type":"string","default":"3"},"showEmpty":{"type":"boolean","default":false},"taxonomy":{"type":"string","default":""},"filtering":{"type":"object","default":{"navigation":"standard","group":"default"}}}}');
 
 /***/ })
 
@@ -580,7 +593,7 @@ module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkwoofilters"] = self["webpackChunkwoofilters"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunkshoophilters"] = self["webpackChunkshoophilters"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();

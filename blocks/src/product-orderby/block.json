@@ -1,17 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "woofilters/product-orderby",
+	"name": "shoophilters/product-orderby",
 	"version": "0.1.0",
-	"title": "Woofilters: Order by filter",
-	"category": "woofilters",
+	"title": "Shoophilters: Order by filter",
+	"category": "shoophilters",
 	"icon": "randomize",
 	"description": "Add an order by filter",
-	"keywords": ["Woofilters", "WooCommerce", "Filter", "Order"],
+	"keywords": ["Shoophilters", "WooCommerce", "Filter", "Order"],
 	"supports": {
 		"html": false
 	},
-	"textdomain": "woofilters",
+	"textdomain": "shoophilters",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

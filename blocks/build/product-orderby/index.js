@@ -58,9 +58,9 @@ const options = [{
 /**
  * LoadTypeControl component.
  *
- * @param root0
- * @param root0.attributes
- * @param root0.onChange
+ * @param {LoadTypeControl} root0            The root.
+ * @param {Array}           root0.attributes Attributes.
+ * @param {Function}        root0.onChange   On change callback.
  */
 const LoadTypeControl = ({
   attributes,
@@ -71,11 +71,11 @@ const LoadTypeControl = ({
     group
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filtering settings', 'woofilters'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filtering settings', 'shoophilters'),
     initialOpen: true
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filter navigation type', 'woofilters'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Choose between url navigation, ajax navigation or delegate filters to a button.', 'woofilters'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filter navigation type', 'shoophilters'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Choose between url navigation, ajax navigation or delegate filters to a button.', 'shoophilters'),
     value: navigation,
     onChange: val => onChange({
       navigation: val,
@@ -83,8 +83,8 @@ const LoadTypeControl = ({
     }),
     options: options
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filter group id', 'woofilters'),
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('The filter group id to apply. All filters in the same group will be applied and reseted at the same time.', 'woofilters'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filter group id', 'shoophilters'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('The filter group id to apply. All filters in the same group will be applied and reseted at the same time.', 'shoophilters'),
     type: "text",
     value: group,
     onChange: val => onChange({
@@ -142,24 +142,24 @@ function Edit(props) {
   } = props;
   const getSideControls = () => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Input settings', 'woofilters'),
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Input settings', 'shoophilters'),
       initialOpen: true
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RadioControl, {
       label: "Input type",
       selected: attributes.type,
       options: [{
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('List', 'woofitlers'),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('List', 'shoophilters'),
         value: 'list'
       }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Dropdow select', 'woofitlers'),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Dropdow select', 'shoophilters'),
         value: 'select'
       }],
       onChange: value => setAttributes({
         type: value
       })
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Show always', 'woofilters'),
-      help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Always show the field, even if no results or there is just one single page.', 'woofilters'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Show always', 'shoophilters'),
+      help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Always show the field, even if no results or there is just one single page.', 'shoophilters'),
       checked: attributes.showAlways,
       onChange: val => setAttributes({
         showAlways: val
@@ -176,27 +176,27 @@ function Edit(props) {
     if ('select' === attributes.type) {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("select", {
         name: "orderby",
-        className: "orderby woofilters-orderby-select"
+        className: "orderby shoophilters-orderby-select"
       }, options.map((option, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
         key: index
       }, option)));
     }
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
-      className: "woofilters-orderby"
+      className: "shoophilters-orderby"
     }, options.map((option, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       key: index,
-      className: "woofilters-orderby-item"
+      className: "shoophilters-orderby-item"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "woofilters-item-radio-label"
+      className: "shoophilters-item-radio-label"
     }, 'button' === attributes.filtering.navigation ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-      className: "woofilters-radio-filter",
+      className: "shoophilters-radio-filter",
       type: "radio"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: "woofilters-radio-filter-mark"
+      className: "shoophilters-radio-filter-mark"
     })) : '', (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       href: "?"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: "woofilters-orderby-name"
+      className: "shoophilters-orderby-name"
     }, option))))));
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -274,7 +274,7 @@ module.exports = window["wp"]["i18n"];
   \***********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"woofilters/product-orderby","version":"0.1.0","title":"Woofilters: Order by filter","category":"woofilters","icon":"randomize","description":"Add an order by filter","keywords":["Woofilters","WooCommerce","Filter","Order"],"supports":{"html":false},"textdomain":"woofilters","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:render.php","attributes":{"type":{"enum":["list","select"],"default":"list"},"showAlways":{"type":"boolean","default":"true"},"filtering":{"type":"object","default":{"navigation":"standard","group":"default"}}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"shoophilters/product-orderby","version":"0.1.0","title":"Shoophilters: Order by filter","category":"shoophilters","icon":"randomize","description":"Add an order by filter","keywords":["Shoophilters","WooCommerce","Filter","Order"],"supports":{"html":false},"textdomain":"shoophilters","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:render.php","attributes":{"type":{"enum":["list","select"],"default":"list"},"showAlways":{"type":"boolean","default":"true"},"filtering":{"type":"object","default":{"navigation":"standard","group":"default"}}}}');
 
 /***/ })
 

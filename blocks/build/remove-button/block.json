@@ -1,14 +1,14 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "woofilters/remove-button",
+  "name": "shoophilters/remove-button",
   "version": "0.1.0",
-  "title": "Woofilters: Remove filters button",
-  "category": "woofilters",
+  "title": "Shoophilters: Remove filters button",
+  "category": "shoophilters",
   "icon": "button",
   "description": "Add attribute filters for your shop",
   "keywords": [
-    "Woofilters",
+    "Shoophilters",
     "WooCommerce",
     "Filter",
     "Button"
@@ -16,7 +16,7 @@
   "supports": {
     "html": false
   },
-  "textdomain": "woofilters",
+  "textdomain": "shoophilters",
   "editorScript": "file:./index.js",
   "attributes": {
     "group": {

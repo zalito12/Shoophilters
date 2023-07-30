@@ -3,6 +3,7 @@ import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { Fragment } from '@wordpress/element';
 import './editor.scss';
 import LoadTypeControl from '../controls/load-type-control';
+import { valueOptions } from '../controls/types';
 
 import ServerSideRender from '@wordpress/server-side-render';
 import {
@@ -11,17 +12,6 @@ import {
 	RadioControl,
 	TextControl,
 } from '@wordpress/components';
-
-const valueOptions = [
-	{
-		value: 'fixed',
-		label: 'Fixed',
-	},
-	{
-		value: 'calculated',
-		label: 'Calculated',
-	},
-];
 
 export default function Edit(props) {
 	const { attributes, setAttributes } = props;
@@ -35,7 +25,7 @@ export default function Edit(props) {
 			<div>
 				<PanelRow>
 					<TextControl
-						label="Min. Price value"
+						label={__('Min. Price value', 'shoophilters')}
 						type="number"
 						value={attributes.minValue}
 						onChange={(val) => setAttributes({ minValue: val })}
@@ -43,7 +33,7 @@ export default function Edit(props) {
 				</PanelRow>
 				<PanelRow>
 					<TextControl
-						label="Max. Price value"
+						label={__('Max. Price value', 'shoophilters')}
 						type="number"
 						value={attributes.maxValue}
 						onChange={(val) => setAttributes({ maxValue: val })}
@@ -57,12 +47,12 @@ export default function Edit(props) {
 		return (
 			<InspectorControls>
 				<PanelBody
-					title={__('Price settings', 'woofilters')}
+					title={__('Price settings', 'shoophilters', 'shoophilters')}
 					initialOpen={true}
 				>
 					<PanelRow>
 						<RadioControl
-							label="Price values type"
+							label={__('Price values type', 'shoophilters')}
 							selected={attributes.endsValue}
 							onChange={(val) =>
 								setAttributes({ endsValue: val })
@@ -73,7 +63,7 @@ export default function Edit(props) {
 					{valueControls()}
 					<PanelRow>
 						<TextControl
-							label="Step"
+							label={__('Step', 'shoophilters')}
 							type="number"
 							value={attributes.step}
 							onChange={(val) => setAttributes({ step: val })}
@@ -94,7 +84,7 @@ export default function Edit(props) {
 				{getSideControls()}
 				<div>
 					<ServerSideRender
-						block="woofilters/product-price"
+						block="shoophilters/product-price"
 						attributes={props.attributes}
 					/>
 				</div>

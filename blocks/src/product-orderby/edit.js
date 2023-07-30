@@ -29,7 +29,7 @@ export default function Edit(props) {
 		return (
 			<InspectorControls>
 				<PanelBody
-					title={__('Input settings', 'woofilters')}
+					title={__('Input settings', 'shoophilters')}
 					initialOpen={true}
 				>
 					<PanelRow>
@@ -38,11 +38,11 @@ export default function Edit(props) {
 							selected={attributes.type}
 							options={[
 								{
-									label: __('List', 'woofitlers'),
+									label: __('List', 'shoophilters'),
 									value: 'list',
 								},
 								{
-									label: __('Dropdow select', 'woofitlers'),
+									label: __('Dropdow select', 'shoophilters'),
 									value: 'select',
 								},
 							]}
@@ -51,10 +51,10 @@ export default function Edit(props) {
 					</PanelRow>
 					<PanelRow>
 						<ToggleControl
-							label={__('Show always', 'woofilters')}
+							label={__('Show always', 'shoophilters')}
 							help={__(
 								'Always show the field, even if no results or there is just one single page.',
-								'woofilters'
+								'shoophilters'
 							)}
 							checked={attributes.showAlways}
 							onChange={(val) =>
@@ -82,7 +82,7 @@ export default function Edit(props) {
 			return (
 				<select
 					name="orderby"
-					className="orderby woofilters-orderby-select"
+					className="orderby shoophilters-orderby-select"
 				>
 					{options.map((option, index) => (
 						<option key={index}>{option}</option>
@@ -92,23 +92,23 @@ export default function Edit(props) {
 		}
 
 		return (
-			<ul className="woofilters-orderby">
+			<ul className="shoophilters-orderby">
 				{options.map((option, index) => (
-					<li key={index} className="woofilters-orderby-item">
-						<div className="woofilters-item-radio-label">
+					<li key={index} className="shoophilters-orderby-item">
+						<div className="shoophilters-item-radio-label">
 							{'button' === attributes.filtering.navigation ? (
 								<div>
 									<input
-										className="woofilters-radio-filter"
+										className="shoophilters-radio-filter"
 										type="radio"
 									/>
-									<span className="woofilters-radio-filter-mark"></span>
+									<span className="shoophilters-radio-filter-mark"></span>
 								</div>
 							) : (
 								''
 							)}
 							<a href="?">
-								<span className="woofilters-orderby-name">
+								<span className="shoophilters-orderby-name">
 									{option}
 								</span>
 							</a>

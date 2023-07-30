@@ -3,7 +3,7 @@
  * Render order by field.
  */
 
-if ( ! function_exists( 'woofilters_get_order_filter' ) ) {
+if ( ! function_exists( 'shoophilters_get_order_filter' ) ) {
 	/**
 	 * Update this function with wc-template-functions.php:woocommerce_catalog_ordering()
 	 *
@@ -14,7 +14,7 @@ if ( ! function_exists( 'woofilters_get_order_filter' ) ) {
 	 * @param string  $group The name of the filters group.
 	 * @param string  $class Classes to apply.
 	 */
-	function woofilters_get_order_filter( $filtering, $show_always, $type, $is_button, $group, $class ) {
+	function shoophilters_get_order_filter( $filtering, $show_always, $type, $is_button, $group, $class ) {
 
 		if ( ! $show_always && ( ! wc_get_loop_prop( 'is_paginated' ) || ! woocommerce_products_will_display() ) ) {
 			return;
@@ -57,9 +57,9 @@ if ( ! function_exists( 'woofilters_get_order_filter' ) ) {
 		}
 
 		if ( 'select' === $type ) {
-			include WOOFILTERS_PATH . 'public/templates/filter-orderby-select.php';
+			include SHOOPHILTERS_PATH . 'public/templates/filter-orderby-select.php';
 		} else {
-			include WOOFILTERS_PATH . 'public/templates/filter-orderby-list.php';
+			include SHOOPHILTERS_PATH . 'public/templates/filter-orderby-list.php';
 		}
 	}
 }
@@ -74,7 +74,7 @@ if ( ! function_exists( 'woocommerce_catalog_ordering' ) ) {
 	$filtering = $attributes['filtering'];
 	$is_button = 'button' === $filtering['navigation'];
 	$group     = 	$filtering['group'];
-	$class     = 'woofilters-filter-navigation-' . $filtering['navigation'] . ' woofilters-filter-group-' . $filtering['group'];
+	$class     = 'shoophilters-filter-navigation-' . $filtering['navigation'] . ' shoophilters-filter-group-' . $filtering['group'];
 
-	woofilters_get_order_filter( $filtering , $attributes['showAlways'], $attributes['type'], $is_button, $group, $class );
+	shoophilters_get_order_filter( $filtering , $attributes['showAlways'], $attributes['type'], $is_button, $group, $class );
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Autoloader for Woofilters namespaces.
+ * Autoloader for Shoophilters namespaces.
  */
 
 if ( ! defined( 'WPINC' ) ) {
@@ -9,14 +9,14 @@ if ( ! defined( 'WPINC' ) ) {
 
 spl_autoload_register(
 	function( $class ) {
-		if ( ! preg_match( '/^GonGarceIO\\\WooFilters\\\/', $class ) ) {
+		if ( ! preg_match( '/^GonGarceIO\\\Shoophilters\\\/', $class ) ) {
 			return;
 		}
 
 		$path = plugin_dir_path( __FILE__ );
 
 		$file = str_replace(
-			array( 'GonGarceIO\\WooFilters\\', '\\', '_' ),
+			array( 'GonGarceIO\\Shoophilters\\', '\\', '_' ),
 			array( '', DIRECTORY_SEPARATOR, '-' ),
 			$class
 		);

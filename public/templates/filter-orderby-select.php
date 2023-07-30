@@ -21,9 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<form class="woofilters-orderby" method="get">
+<form class="shoophilters-orderby" method="get">
 	<select name="orderby"
-			class="orderby woofilters-orderby-select <?php echo esc_attr( $class ); ?>"
+			class="orderby shoophilters-orderby-select <?php echo esc_attr( $class ); ?>"
 			data-group="<?php echo esc_attr( $group ); ?>"
 			data-filter="orderby">
 			<?php foreach ( $catalog_orderby_options as $id => $name ) : // phpcs:ignore  ?>

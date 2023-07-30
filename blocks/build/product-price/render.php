@@ -1,6 +1,6 @@
 <?php
 
-use GonGarceIO\WooFilters\Includes\Woofilters_Product_Query;
+use GonGarceIO\Shoophilters\Includes\Shoophilters_Product_Query;
 
 $filtering  = $attributes['filtering'];
 $value_type = $attributes['endsValue']; // fixed, calculated.
@@ -10,7 +10,7 @@ $step       = $attributes['step'];
 $min_range  = absint( $attributes['minRange'] );
 $max_range  = absint( $attributes['maxRange'] );
 
-$product_query = new Woofilters_Product_Query();
+$product_query = new Shoophilters_Product_Query();
 if ( 'fixed' !== $value_type ) {
 	$prices    = $product_query->get_filtered_price();
 	$min_value = absint( $prices->min_price );
@@ -34,7 +34,7 @@ $group     = $filtering['group'];
 
 ?>
 <div class="<?php echo esc_attr( $attributes['className'] ); ?>">
-	<div class="woofilters-slider-range woofilters-slider-price"
+	<div class="shoophilters-slider-range shoophilters-slider-price"
 		data-navigation="<?php echo esc_attr( $filtering['navigation'] ); ?>"
 		data-group="<?php echo esc_attr( $group ); ?>"
 		data-min="<?php echo esc_attr( $min_value ); ?>"
@@ -44,6 +44,6 @@ $group     = $filtering['group'];
 		data-symbol="<?php echo esc_attr( get_woocommerce_currency_symbol() ); ?>"
 		data-filter-0="min_price"
 		data-filter-1="max_price">
-		<div class="woofilters-slider-range-label"><?php echo esc_html( $min_value . '€ - ' . $max_value . '€' ); ?></div>
+		<div class="shoophilters-slider-range-label"><?php echo esc_html( $min_value . '€ - ' . $max_value . '€' ); ?></div>
 	</div>
 </div>

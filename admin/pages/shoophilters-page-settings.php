@@ -1,13 +1,13 @@
 <?php
 
-namespace GonGarceIO\WooFilters\Admin\Pages;
+namespace GonGarceIO\Shoophilters\Admin\Pages;
 
-use GonGarceIO\WooFilters\Admin\Admin_Page;
+use GonGarceIO\Shoophilters\Admin\Admin_Page;
 
 /**
  * Page for the plugin settings.
  */
-class WooFilters_Page_Settings extends Admin_Page {
+class Shoophilters_Page_Settings extends Admin_Page {
 
 	/**
 	 * Constructor.
@@ -22,13 +22,13 @@ class WooFilters_Page_Settings extends Admin_Page {
 	public function configure() {
 		add_settings_section(
 			self::get_slug() . '-pagination',
-			__( 'Pagination options', 'woofilters' ),
+			__( 'Pagination options', 'shoophilters' ),
 			array(),
 			self::get_slug()
 		);
 		add_settings_field(
 			self::get_slug() . '-pagination-type',
-			__( 'Pagination type', 'woofilters' ),
+			__( 'Pagination type', 'shoophilters' ),
 			array( $this, 'render_option_field' ),
 			self::get_slug(),
 			self::get_slug() . '-pagination',
@@ -38,7 +38,7 @@ class WooFilters_Page_Settings extends Admin_Page {
 		);
 		add_settings_field(
 			self::get_slug() . '-scroll-to',
-			__( 'Scroll to this position after loading a new page', 'woofilters' ),
+			__( 'Scroll to this position after loading a new page', 'shoophilters' ),
 			array( $this, 'render_option_field' ),
 			self::get_slug(),
 			self::get_slug() . '-pagination',
@@ -49,13 +49,13 @@ class WooFilters_Page_Settings extends Admin_Page {
 
 		add_settings_section(
 			self::get_slug() . '-selectors',
-			__( 'Element selectors', 'woofilters' ),
+			__( 'Element selectors', 'shoophilters' ),
 			array(),
 			self::get_slug()
 		);
 		add_settings_field(
 			self::get_slug() . '-element-result-count',
-			__( 'Result count element', 'woofilters' ),
+			__( 'Result count element', 'shoophilters' ),
 			array( $this, 'render_option_field' ),
 			self::get_slug(),
 			self::get_slug() . '-selectors',
@@ -65,7 +65,7 @@ class WooFilters_Page_Settings extends Admin_Page {
 		);
 		add_settings_field(
 			self::get_slug() . '-element-content',
-			__( 'Result count element', 'woofilters' ),
+			__( 'Result count element', 'shoophilters' ),
 			array( $this, 'render_option_field' ),
 			self::get_slug(),
 			self::get_slug() . '-selectors',
@@ -75,7 +75,7 @@ class WooFilters_Page_Settings extends Admin_Page {
 		);
 		add_settings_field(
 			self::get_slug() . '-element-products',
-			__( 'Products element', 'woofilters' ),
+			__( 'Products element', 'shoophilters' ),
 			array( $this, 'render_option_field' ),
 			self::get_slug(),
 			self::get_slug() . '-selectors',
@@ -85,7 +85,7 @@ class WooFilters_Page_Settings extends Admin_Page {
 		);
 		add_settings_field(
 			self::get_slug() . '-element-pagination',
-			__( 'Pagination element', 'woofilters' ),
+			__( 'Pagination element', 'shoophilters' ),
 			array( $this, 'render_option_field' ),
 			self::get_slug(),
 			self::get_slug() . '-selectors',
@@ -95,7 +95,7 @@ class WooFilters_Page_Settings extends Admin_Page {
 		);
 		add_settings_field(
 			self::get_slug() . '-element-page',
-			__( 'Page item element', 'woofilters' ),
+			__( 'Page item element', 'shoophilters' ),
 			array( $this, 'render_option_field' ),
 			self::get_slug(),
 			self::get_slug() . '-selectors',
@@ -129,7 +129,7 @@ class WooFilters_Page_Settings extends Admin_Page {
 	 * @return string
 	 */
 	public static function get_menu_title() {
-		return WOOFILTERS_PLUGIN_FULL_NAME;
+		return SHOOPHILTERS_PLUGIN_FULL_NAME;
 	}
 
 	/**
@@ -138,7 +138,7 @@ class WooFilters_Page_Settings extends Admin_Page {
 	 * @return string
 	 */
 	public static function get_page_title() {
-		return WOOFILTERS_PLUGIN_FULL_NAME . ': ' . __( 'Settings' );
+		return SHOOPHILTERS_PLUGIN_FULL_NAME . ': ' . __( 'Settings' );
 	}
 
 	/**
@@ -156,7 +156,7 @@ class WooFilters_Page_Settings extends Admin_Page {
 	 * @return string
 	 */
 	public static function get_slug() {
-		return 'woofilters-settings';
+		return 'shoophilters-settings';
 	}
 
 	/**

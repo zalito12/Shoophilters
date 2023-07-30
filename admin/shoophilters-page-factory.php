@@ -1,13 +1,13 @@
 <?php
 
-namespace GonGarceIO\WooFilters\Admin;
+namespace GonGarceIO\Shoophilters\Admin;
 
-use GonGarceIO\WooFilters\Admin\Admin_Page;
+use GonGarceIO\Shoophilters\Admin\Admin_Page;
 
 /**
  * Factory for admin pages.
  */
-class WooFilters_Page_Factory {
+class Shoophilters_Page_Factory {
 
 	/**
 	 * Saves the current page reference for later use.

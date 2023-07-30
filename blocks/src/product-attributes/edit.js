@@ -22,6 +22,8 @@ import {
 import { useSelect } from '@wordpress/data';
 import { store as coreDataStore } from '@wordpress/core-data';
 
+import { totalOptions } from '../controls/types';
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -31,31 +33,6 @@ import { store as coreDataStore } from '@wordpress/core-data';
  *
  * @return {WPElement} Element to render.
  */
-const totalOptions = [
-	{
-		value: 'never',
-		label: 'Never',
-	},
-	{
-		value: 'always',
-		label: 'Always',
-	},
-	{
-		value: 'current',
-		label: 'Only when selected',
-	},
-];
-
-const styleOptions = [
-	{
-		value: 'list',
-		label: 'List',
-	},
-	{
-		value: 'grid',
-		label: 'Grid',
-	},
-];
 
 export default function Edit(props) {
 	const { attributes, setAttributes } = props;
@@ -68,7 +45,7 @@ export default function Edit(props) {
 					controls={[
 						{
 							icon: 'edit',
-							title: __('Edit', 'woofilters'),
+							title: __('Edit', 'shoophilters'),
 							onClick: () => setAttributes({ taxonomy: '' }),
 							isActive: isEditing,
 						},
@@ -78,33 +55,16 @@ export default function Edit(props) {
 		);
 	};
 
-	const gridConfigControls = () => {
-		if ('grid' !== attributes.style) {
-			return;
-		}
-
-		return (
-			<PanelRow>
-				<TextControl
-					label="Items per row"
-					type="number"
-					value={attributes.rowSize}
-					onChange={(val) => setAttributes({ rowSize: val })}
-				/>
-			</PanelRow>
-		);
-	};
-
 	const getSideControls = () => {
 		return (
 			<InspectorControls>
 				<PanelBody
-					title={__('Attribute settings', 'woofilters')}
+					title={__('Attribute settings', 'shoophilters')}
 					initialOpen={true}
 				>
 					<PanelRow>
 						<ToggleControl
-							label="Show empty attributes"
+							label={__('Show empty attributes', 'shoophilters')}
 							checked={attributes.showEmpty}
 							onChange={(val) =>
 								setAttributes({ showEmpty: val })
@@ -113,7 +73,7 @@ export default function Edit(props) {
 					</PanelRow>
 					<PanelRow>
 						<SelectControl
-							label="Show product count"
+							label={__('Show product count', 'shoophilters')}
 							value={attributes.showTotal}
 							onChange={(val) =>
 								setAttributes({ showTotal: val })
@@ -123,18 +83,17 @@ export default function Edit(props) {
 					</PanelRow>
 				</PanelBody>
 				<PanelBody
-					title={__('List settings', 'woofilters')}
+					title={__('List settings', 'shoophilters')}
 					initialOpen={true}
 				>
 					<PanelRow>
-						<RadioControl
-							label="Style"
-							selected={attributes.style}
-							onChange={(val) => setAttributes({ style: val })}
-							options={styleOptions}
+						<TextControl
+							label={__('Items per row', 'shoophilters')}
+							type="number"
+							value={attributes.rowSize}
+							onChange={(val) => setAttributes({ rowSize: val })}
 						/>
 					</PanelRow>
-					{gridConfigControls()}
 				</PanelBody>
 				<LoadTypeControl
 					attributes={attributes.filtering}
@@ -152,7 +111,7 @@ export default function Edit(props) {
 		return (
 			<div>
 				<RadioControl
-					label="Select attribute to filter"
+					label={__('Select attribute to filter', 'shoophilters')}
 					selected={attributes.taxonomy}
 					onChange={(val) => setAttributes({ taxonomy: val })}
 					options={attributeOptions}
@@ -165,27 +124,26 @@ export default function Edit(props) {
 		select(coreDataStore).getTaxonomies({ type: 'product' })
 	);
 
+	const blockProps = useBlockProps();
 	if (attributes.taxonomy === '' || isEditing) {
 		isEditing = true;
 		if (!taxonomies) {
-			return <div {...useBlockProps()}>Loading attributes...</div>;
+			return <div {...blockProps}>Loading attributes...</div>;
 		}
 
 		return (
-			<div {...useBlockProps()}>
-				{getSelectAttributeControl(taxonomies)}
-			</div>
+			<div {...blockProps}>{getSelectAttributeControl(taxonomies)}</div>
 		);
 	}
 
 	return (
-		<div {...useBlockProps()}>
+		<div {...blockProps}>
 			<Fragment>
 				{getBlockControls()}
 				{getSideControls()}
 				<div>
 					<ServerSideRender
-						block="woofilters/product-attributes"
+						block="shoophilters/product-attributes"
 						attributes={props.attributes}
 					/>
 				</div>

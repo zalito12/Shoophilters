@@ -19,14 +19,14 @@ registerBlockType(metadata.name, {
 			<div {...blockProps}>
 				{'button' === attributes.type ? (
 					<button
-						className={`woofilters-filter-remove-button`}
+						className={`shoophilters-filter-remove-button`}
 						data-group={group}
 					>
 						{text}
 					</button>
 				) : (
 					<span
-						className={`woofilters-filter-remove-button`}
+						className={`shoophilters-filter-remove-button`}
 						data-group={group}
 					>
 						{text}

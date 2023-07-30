@@ -58,12 +58,12 @@ function Edit(props) {
     mobileWidth = attributes.breakpoint.mobile;
   const getSideControls = () => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Visibility settings', 'woofilters'),
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Visibility settings', 'shoophilters'),
       initialOpen: true
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "woofilters-group"
+      className: "shoophilters-group"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: `woofilters-group-checkbox ${desktop ? 'active' : ''}`,
+      className: `shoophilters-group-checkbox ${desktop ? 'active' : ''}`,
       role: "presentation",
       onClick: () => setAttributes({
         visibility: {
@@ -75,7 +75,7 @@ function Edit(props) {
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
       className: "dashicon dashicons dashicons-desktop"
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: `woofilters-group-checkbox ${tablet ? 'active' : ''}`,
+      className: `shoophilters-group-checkbox ${tablet ? 'active' : ''}`,
       role: "presentation",
       onClick: () => setAttributes({
         visibility: {
@@ -87,7 +87,7 @@ function Edit(props) {
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
       className: "dashicon dashicons dashicons-tablet"
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: `woofilters-group-checkbox ${mobile ? 'active' : ''}`,
+      className: `shoophilters-group-checkbox ${mobile ? 'active' : ''}`,
       role: "presentation",
       onClick: () => setAttributes({
         visibility: {
@@ -99,7 +99,7 @@ function Edit(props) {
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
       className: "dashicon dashicons dashicons-smartphone"
     })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
-      label: "Tablet width breakpoint (px)",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Tablet width breakpoint (px)', 'shoophilters'),
       value: tabletWidth,
       onChange: value => setAttributes({
         breakpoint: {
@@ -108,7 +108,7 @@ function Edit(props) {
         }
       })
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
-      label: "Mobile width breakpoint (px)",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Mobile width breakpoint (px)', 'shoophilters'),
       value: mobileWidth,
       onChange: value => setAttributes({
         breakpoint: {
@@ -121,7 +121,7 @@ function Edit(props) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, getSideControls(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
-    placeholder: "Empty responsive container",
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Empty responsive container', 'shoophilters'),
     renderAppender: () => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.ButtonBlockAppender, null)
   }));
 }
@@ -188,26 +188,26 @@ function Edit(props) {
   const tabletWidth = attributes.breakpoint.tablet,
     mobileWidth = attributes.breakpoint.mobile;
   const style = `
-	.woofilters-responsive-${blockId}-parent, #woofilters-responsive-${blockId} {
+	.shoophilters-responsive-${blockId}-parent, #shoophilters-responsive-${blockId} {
 		display: ${desktop ? 'inherit' : 'none'}
 	}
 	@media (max-width: ${tabletWidth}px) {
-		.woofilters-responsive-${blockId}-parent, #woofilters-responsive-${blockId} {
+		.shoophilters-responsive-${blockId}-parent, #shoophilters-responsive-${blockId} {
 			display: ${tablet ? 'inherit' : 'none'}
 		}
 	}
 	@media (max-width: ${mobileWidth}px) {
-		.woofilters-responsive-${blockId}-parent, #woofilters-responsive-${blockId} {
+		.shoophilters-responsive-${blockId}-parent, #shoophilters-responsive-${blockId} {
 			display: ${mobile ? 'inherit' : 'none'}
 		}
 	}
 	`;
   const script = `
-	document.getElementById('woofilters-responsive-${blockId}').parentNode.classList.add('woofilters-responsive-${blockId}-parent');
+	document.getElementById('shoophilters-responsive-${blockId}').parentNode.classList.add('shoophilters-responsive-${blockId}-parent');
 	`;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps,
-    id: `woofilters-responsive-${blockId}`
+    id: `shoophilters-responsive-${blockId}`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, style), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", {
     type: "text/javascript"
   }, script), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null));
@@ -295,7 +295,7 @@ module.exports = window["wp"]["i18n"];
   \****************************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"woofilters/responsive-container","version":"0.1.0","title":"Woofilters: Responsive container","category":"woofilters","icon":"smartphone","description":"A configurable container to change visibility with screen size","keywords":["Woofilters","WooCommerce","Container","Responsive"],"supports":{"html":false},"textdomain":"woofilters","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"blockId":{"type":"string","default":""},"visibility":{"type":"object","default":{"desktop":true,"tablet":true,"mobile":true}},"breakpoint":{"type":"object","default":{"tablet":"921","mobile":"544"}}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"shoophilters/responsive-container","version":"0.1.0","title":"Shoophilters: Responsive container","category":"shoophilters","icon":"smartphone","description":"A configurable container to change visibility with screen size","keywords":["Shoophilters","WooCommerce","Container","Responsive"],"supports":{"html":false},"textdomain":"shoophilters","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"blockId":{"type":"string","default":""},"visibility":{"type":"object","default":{"desktop":true,"tablet":true,"mobile":true}},"breakpoint":{"type":"object","default":{"tablet":"921","mobile":"544"}}}}');
 
 /***/ })
 
@@ -454,7 +454,7 @@ module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkwoofilters"] = self["webpackChunkwoofilters"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunkshoophilters"] = self["webpackChunkshoophilters"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();

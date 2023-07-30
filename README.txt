@@ -1,7 +1,7 @@
-=== WooFilters ===
+=== Shoophilters ===
 
 Contributors:      gon123
-Tags:              woocommerce, filters, products, blocks
+Tags:              woocommerce, filters, products, blocks, shop
 Requires at least: 6.1
 Tested up to:      6.2
 Requires PHP:      8.0

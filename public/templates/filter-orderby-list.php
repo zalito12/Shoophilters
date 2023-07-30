@@ -19,21 +19,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<ul class="woofilters-orderby">
+<ul class="shoophilters-orderby">
 	<?php foreach ( $catalog_orderby_options as $id => $name ) : // phpcs:ignore ?>
-	<li class="woofilters-orderby-item <?php echo $id === $orderby ? 'current ' : ''; ?><?php echo esc_attr( $class ); ?>"
+	<li class="shoophilters-orderby-item <?php echo $id === $orderby ? 'current ' : ''; ?><?php echo esc_attr( $class ); ?>"
 		data-group="<?php echo esc_attr( $group ); ?>"
 		data-value="<?php echo esc_attr( $id ); ?>"
 		data-filter="orderby">
-		<div class="woofilters-item-radio-label">
+		<div class="shoophilters-item-radio-label">
 			<?php if ( $is_button ) : ?>
-				<input class="woofilters-radio-filter" type="radio"
-					name="woofilters-radio-orderby-<?php echo esc_attr( $group ); ?>"
+				<input class="shoophilters-radio-filter" type="radio"
+					name="shoophilters-radio-orderby-<?php echo esc_attr( $group ); ?>"
 					value="<?php echo esc_attr( $id ); ?>"
 					<?php checked( $orderby, $id ); ?> />
-				<span class="woofilters-radio-filter-mark"></span>
+				<span class="shoophilters-radio-filter-mark"></span>
 			<?php endif; ?>
-			<span class="woofilters-orderby-name"><?php echo esc_html( $name ); ?></span>
+			<span class="shoophilters-orderby-name"><?php echo esc_html( $name ); ?></span>
 		</div>
 	</li>
 	<?php endforeach; ?>

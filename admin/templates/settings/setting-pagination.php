@@ -1,20 +1,20 @@
 <?php
-$pagination = WooFilters_Settings::get_option_with_default( WooFilters_Settings::OPTION_PAGINATION );
+$pagination = Shoophilters_Settings::get_option_with_default( Shoophilters_Settings::OPTION_PAGINATION );
 ?>
-<select id="woofilters-pagination-type" class="regular-text" name="<?php echo esc_attr( WooFilters_Settings::OPTION_PAGINATION . '[' . WooFilters_Settings::FIELD_PAGINATION_TYPE . ']' ); ?>">
-	<option value="<?php echo esc_attr( PaginationType::PAGES ); ?>" <?php selected( PaginationType::PAGES, $pagination[ WooFilters_Settings::FIELD_PAGINATION_TYPE ] ); ?>>
-		<?php esc_html_e( 'Pages', 'woofilters' ); ?>
+<select id="shoophilters-pagination-type" class="regular-text" name="<?php echo esc_attr( Shoophilters_Settings::OPTION_PAGINATION . '[' . Shoophilters_Settings::FIELD_PAGINATION_TYPE . ']' ); ?>">
+	<option value="<?php echo esc_attr( PaginationType::PAGES ); ?>" <?php selected( PaginationType::PAGES, $pagination[ Shoophilters_Settings::FIELD_PAGINATION_TYPE ] ); ?>>
+		<?php esc_html_e( 'Pages', 'shoophilters' ); ?>
 	</option>
-	<option value="<?php echo esc_attr( PaginationType::INFINITE ); ?>" <?php selected( PaginationType::INFINITE, $pagination[ WooFilters_Settings::FIELD_PAGINATION_TYPE ] ); ?>>
-		<?php esc_html_e( 'Infinite Scroll', 'woofilters' ); ?>
+	<option value="<?php echo esc_attr( PaginationType::INFINITE ); ?>" <?php selected( PaginationType::INFINITE, $pagination[ Shoophilters_Settings::FIELD_PAGINATION_TYPE ] ); ?>>
+		<?php esc_html_e( 'Infinite Scroll', 'shoophilters' ); ?>
 	</option>
 </select>
 <p>
-	<span id="woofilters-pagination-<?php echo esc_attr( PaginationType::PAGES ); ?>" class="hidden">
-		<?php esc_html_e( 'Use the standard pages with async load.', 'woofilters' ); ?>
+	<span id="shoophilters-pagination-<?php echo esc_attr( PaginationType::PAGES ); ?>" class="hidden">
+		<?php esc_html_e( 'Use the standard pages with async load.', 'shoophilters' ); ?>
 	</span>
-	<span id="woofilters-pagination-<?php echo esc_attr( PaginationType::INFINITE ); ?>" class="hidden">
-		<?php esc_html_e( 'Use infinite scroll pagination with async load.', 'woofilters' ); ?>
+	<span id="shoophilters-pagination-<?php echo esc_attr( PaginationType::INFINITE ); ?>" class="hidden">
+		<?php esc_html_e( 'Use infinite scroll pagination with async load.', 'shoophilters' ); ?>
 	</span>
 </p>
 
@@ -24,12 +24,12 @@ $pagination = WooFilters_Settings::get_option_with_default( WooFilters_Settings:
 
 	$(function () {
 		// Helpers for pagination type
-		let oldVal = $('#woofilters-pagination-type').val();
-		$('#woofilters-pagination-' + oldVal).show();
-		$('#woofilters-pagination-type').on('change', (e) => {
-			$('#woofilters-pagination-' + oldVal).hide();
-			oldVal = $('#woofilters-pagination-type').val()
-			$('#woofilters-pagination-' + oldVal).show();
+		let oldVal = $('#shoophilters-pagination-type').val();
+		$('#shoophilters-pagination-' + oldVal).show();
+		$('#shoophilters-pagination-type').on('change', (e) => {
+			$('#shoophilters-pagination-' + oldVal).hide();
+			oldVal = $('#shoophilters-pagination-type').val()
+			$('#shoophilters-pagination-' + oldVal).show();
 		});
 	});
 })(jQuery);

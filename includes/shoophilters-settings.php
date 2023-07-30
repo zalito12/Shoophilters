@@ -3,14 +3,14 @@
 /**
  * Settings constants and values.
  */
-class WooFilters_Settings {
+class Shoophilters_Settings {
 
-	public const OPTION_PAGINATION      = 'woofilters_scroll';
+	public const OPTION_PAGINATION      = 'shoophilters_scroll';
 	public const FIELD_PAGINATION_TYPE  = 'paginationType';
 	public const FIELD_SCROLL_TO        = 'scrollTo';
 	public const FIELD_SCROLL_TO_CUSTOM = 'scrollToCustom';
 
-	public const OPTION_SELECTORS            = 'woofilters_element_selectors';
+	public const OPTION_SELECTORS            = 'shoophilters_element_selectors';
 	public const FIELD_SELECTOR_RESULT_COUNT = 'resultCount';
 	public const FIELD_SELECTOR_CONTENT      = 'content';
 	public const FIELD_SELECTOR_PRODUCTS     = 'products';

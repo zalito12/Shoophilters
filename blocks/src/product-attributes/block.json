@@ -1,17 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "woofilters/product-attributes",
+	"name": "shoophilters/product-attributes",
 	"version": "0.1.0",
-	"title": "Woofilters: Product attributes filter",
-	"category": "woofilters",
+	"title": "Shoophilters: Product attributes filter",
+	"category": "shoophilters",
 	"icon": "grid-view",
 	"description": "Add attribute filters for your shop",
-	"keywords": [ "Woofilters", "WooCommerce" ],
+	"keywords": [ "Shoophilters", "WooCommerce" ],
 	"supports": {
 		"html": false
 	},
-	"textdomain": "woofilters",
+	"textdomain": "shoophilters",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
@@ -20,10 +20,6 @@
 		"showTotal": {
 			"enum": ["never", "always", "current"],
 			"default": "never"
-		},
-		"style": {
-			"enum": ["list", "grid"],
-			"default": "grid"
 		},
 		"rowSize": {
 			"type": "string",

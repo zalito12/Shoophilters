@@ -1,17 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "woofilters/product-categories",
+	"name": "shoophilters/product-categories",
 	"version": "0.1.0",
-	"title": "Woofilters: Product Categories",
-	"category": "woofilters",
+	"title": "Shoophilters: Product Categories",
+	"category": "shoophilters",
 	"icon": "list-view",
 	"description": "Add product category selector to your shop.",
-	"keywords": ["Woofilters", "WooCommerce"],
+	"keywords": ["Shoophilters", "WooCommerce"],
 	"supports": {
 		"html": false
 	},
-	"textdomain": "woofilters",
+	"textdomain": "shoophilters",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

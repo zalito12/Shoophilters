@@ -63,24 +63,24 @@ function Edit(props) {
   } = props;
   const getSideControls = () => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button settings', 'woofilters'),
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button settings', 'shoophilters'),
       initialOpen: true
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filter group id', 'woofilters'),
-      help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('The filter group id to remove filters. All filters in the same group will be reseted.', 'woofilters'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filter group id', 'shoophilters'),
+      help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('The filter group id to remove filters. All filters in the same group will be reseted.', 'shoophilters'),
       type: "text",
       value: attributes.group,
       onChange: val => setAttributes({
         group: (0,_controls_group_validator__WEBPACK_IMPORTED_MODULE_4__["default"])(val)
       })
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: "Use plain text",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Use plain text', 'shoophilters'),
       checked: 'text' === attributes.type,
       onChange: val => setAttributes({
         type: val ? 'text' : 'button'
       })
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button text', 'woofilters'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button text', 'shoophilters'),
       type: "text",
       value: attributes.text,
       onChange: val => setAttributes({
@@ -151,7 +151,7 @@ module.exports = window["wp"]["i18n"];
   \*********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"woofilters/remove-button","version":"0.1.0","title":"Woofilters: Remove filters button","category":"woofilters","icon":"button","description":"Add attribute filters for your shop","keywords":["Woofilters","WooCommerce","Filter","Button"],"supports":{"html":false},"textdomain":"woofilters","editorScript":"file:./index.js","attributes":{"group":{"type":"string","default":"default"},"type":{"enum":["button","text"],"default":"button"},"text":{"type":"string","default":"Reset Filters"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"shoophilters/remove-button","version":"0.1.0","title":"Shoophilters: Remove filters button","category":"shoophilters","icon":"button","description":"Add attribute filters for your shop","keywords":["Shoophilters","WooCommerce","Filter","Button"],"supports":{"html":false},"textdomain":"shoophilters","editorScript":"file:./index.js","attributes":{"group":{"type":"string","default":"default"},"type":{"enum":["button","text"],"default":"button"},"text":{"type":"string","default":"Reset Filters"}}}');
 
 /***/ })
 
@@ -260,10 +260,10 @@ __webpack_require__.r(__webpack_exports__);
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       ...blockProps
     }, 'button' === attributes.type ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-      className: `woofilters-filter-remove-button`,
+      className: `shoophilters-filter-remove-button`,
       "data-group": group
     }, text) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: `woofilters-filter-remove-button`,
+      className: `shoophilters-filter-remove-button`,
       "data-group": group
     }, text));
   }

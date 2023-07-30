@@ -34,13 +34,13 @@ export default function Edit(props) {
 		return (
 			<InspectorControls>
 				<PanelBody
-					title={__('Visibility settings', 'woofilters')}
+					title={__('Visibility settings', 'shoophilters')}
 					initialOpen={true}
 				>
 					<PanelRow>
-						<div className="woofilters-group">
+						<div className="shoophilters-group">
 							<div
-								className={`woofilters-group-checkbox ${
+								className={`shoophilters-group-checkbox ${
 									desktop ? 'active' : ''
 								}`}
 								role="presentation"
@@ -57,7 +57,7 @@ export default function Edit(props) {
 								<span className="dashicon dashicons dashicons-desktop"></span>
 							</div>
 							<div
-								className={`woofilters-group-checkbox ${
+								className={`shoophilters-group-checkbox ${
 									tablet ? 'active' : ''
 								}`}
 								role="presentation"
@@ -74,7 +74,7 @@ export default function Edit(props) {
 								<span className="dashicon dashicons dashicons-tablet"></span>
 							</div>
 							<div
-								className={`woofilters-group-checkbox ${
+								className={`shoophilters-group-checkbox ${
 									mobile ? 'active' : ''
 								}`}
 								role="presentation"
@@ -94,7 +94,10 @@ export default function Edit(props) {
 					</PanelRow>
 					<PanelRow>
 						<TextControl
-							label="Tablet width breakpoint (px)"
+							label={__(
+								'Tablet width breakpoint (px)',
+								'shoophilters'
+							)}
 							value={tabletWidth}
 							onChange={(value) =>
 								setAttributes({
@@ -108,7 +111,10 @@ export default function Edit(props) {
 					</PanelRow>
 					<PanelRow>
 						<TextControl
-							label="Mobile width breakpoint (px)"
+							label={__(
+								'Mobile width breakpoint (px)',
+								'shoophilters'
+							)}
 							value={mobileWidth}
 							onChange={(value) =>
 								setAttributes({
@@ -129,7 +135,7 @@ export default function Edit(props) {
 		<div {...useBlockProps()}>
 			{getSideControls()}
 			<InnerBlocks
-				placeholder="Empty responsive container"
+				placeholder={__('Empty responsive container', 'shoophilters')}
 				renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
 			/>
 		</div>

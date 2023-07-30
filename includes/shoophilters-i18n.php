@@ -1,19 +1,14 @@
 <?php
 
-namespace GonGarceIO\WooFilters\Includes;
+namespace GonGarceIO\Shoophilters\Includes;
 
 /**
  * Define the internationalization functionality.
  *
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
- *
- * @since      1.0.0
- * @package    Woofilters
- * @subpackage Woofilters/includes
- * @author     Your Name <email@example.com>
  */
-class Woofilters_I18n {
+class Shoophilters_I18n {
 
 	/**
 	 * Set ups all the actions and filters for admin scope.
@@ -30,7 +25,7 @@ class Woofilters_I18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'woofilters',
+			'shoophilters',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

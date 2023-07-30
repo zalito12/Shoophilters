@@ -10,27 +10,27 @@ export default function Edit(props) {
 		mobileWidth = attributes.breakpoint.mobile;
 
 	const style = `
-	.woofilters-responsive-${blockId}-parent, #woofilters-responsive-${blockId} {
+	.shoophilters-responsive-${blockId}-parent, #shoophilters-responsive-${blockId} {
 		display: ${desktop ? 'inherit' : 'none'}
 	}
 	@media (max-width: ${tabletWidth}px) {
-		.woofilters-responsive-${blockId}-parent, #woofilters-responsive-${blockId} {
+		.shoophilters-responsive-${blockId}-parent, #shoophilters-responsive-${blockId} {
 			display: ${tablet ? 'inherit' : 'none'}
 		}
 	}
 	@media (max-width: ${mobileWidth}px) {
-		.woofilters-responsive-${blockId}-parent, #woofilters-responsive-${blockId} {
+		.shoophilters-responsive-${blockId}-parent, #shoophilters-responsive-${blockId} {
 			display: ${mobile ? 'inherit' : 'none'}
 		}
 	}
 	`;
 
 	const script = `
-	document.getElementById('woofilters-responsive-${blockId}').parentNode.classList.add('woofilters-responsive-${blockId}-parent');
+	document.getElementById('shoophilters-responsive-${blockId}').parentNode.classList.add('shoophilters-responsive-${blockId}-parent');
 	`;
 
 	return (
-		<div {...blockProps} id={`woofilters-responsive-${blockId}`}>
+		<div {...blockProps} id={`shoophilters-responsive-${blockId}`}>
 			<style>{style}</style>
 			<script type="text/javascript">{script}</script>
 			<InnerBlocks.Content />

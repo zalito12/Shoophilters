@@ -4,10 +4,10 @@
  *
  * Available variables:
  *
- *  @var WooFilters_Page_Settings $this
+ *  @var Shoophilters_Page_Settings $this
  */
 
-settings_errors( 'woofilters_messages' );
+settings_errors( 'shoophilters_messages' );
 ?>
 
 <div class="wrap">

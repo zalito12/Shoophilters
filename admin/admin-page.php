@@ -1,6 +1,6 @@
 <?php
 
-namespace GonGarceIO\WooFilters\Admin;
+namespace GonGarceIO\Shoophilters\Admin;
 
 /**
  * Abstract class to extends in adming pages.
@@ -30,7 +30,7 @@ abstract class Admin_Page {
 	 */
 	public function __construct( $page_template_name, $templates_subpath = '' ) {
 		$this->page_template  = $page_template_name;
-		$this->templates_path = WOOFILTERS_PATH_ADMIN . 'templates/' . ( empty( $templates_subpath ) ? '' : trim( $templates_subpath, '/' ) . '/' );
+		$this->templates_path = SHOOPHILTERS_PATH_ADMIN . 'templates/' . ( empty( $templates_subpath ) ? '' : trim( $templates_subpath, '/' ) . '/' );
 	}
 
 	/**

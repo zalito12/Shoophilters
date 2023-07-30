@@ -1,15 +1,15 @@
 <?php
 
-namespace GonGarceIO\WooFilters\Includes;
+namespace GonGarceIO\Shoophilters\Includes;
 
 use Automattic\WooCommerce\StoreApi\Utilities\ProductQueryFilters;
 
 /**
- * Extends WooCommerce product query filters to prepare request from woofilters query params.
+ * Extends WooCommerce product query filters to prepare request from shoophilters query params.
  *
  * @uses Automattic\WooCommerce\StoreApi\Utilities\ProductQueryFilters
  */
-class Woofilters_Product_Query {
+class Shoophilters_Product_Query {
 
 	/**
 	 * The currently queried object.
@@ -250,7 +250,7 @@ class Woofilters_Product_Query {
 			$where_max_price = sprintf( 'AND meta.max_price <= %1s ', absint( $max_price ) );
 		}
 
-		$cache_key      = self::get_transient_key( 'woofilters_get_attribute_counts_', $count_attribute, $categories, $filter_attributes, $min_price, $max_price );
+		$cache_key      = self::get_transient_key( 'shoophilters_get_attribute_counts_', $count_attribute, $categories, $filter_attributes, $min_price, $max_price );
 		$cached_results = get_transient( $cache_key );
 		if ( ! empty( $cached_results ) && defined( 'WP_DEBUG' ) && ! WP_DEBUG ) {
 			return $cached_results;

@@ -10,7 +10,8 @@ import {
 	PanelRow,
 	SelectControl,
 } from '@wordpress/components';
-import LoadTypeControl from '../controls/load-type-control.js';
+import LoadTypeControl from '../controls/load-type-control';
+import { totalOptions } from '../controls/types';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -21,20 +22,6 @@ import LoadTypeControl from '../controls/load-type-control.js';
  *
  * @return {WPElement} Element to render.
  */
-const totalOptions = [
-	{
-		value: 'never',
-		label: 'Never',
-	},
-	{
-		value: 'always',
-		label: 'Always',
-	},
-	{
-		value: 'current',
-		label: 'Only when selected',
-	},
-];
 
 export default function Edit(props) {
 	const { attributes, setAttributes } = props;
@@ -43,12 +30,12 @@ export default function Edit(props) {
 		return (
 			<InspectorControls>
 				<PanelBody
-					title={__('Category settings', 'woofilters')}
+					title={__('Category settings', 'shoophilters')}
 					initialOpen={true}
 				>
 					<PanelRow>
 						<ToggleControl
-							label="Show empty categories"
+							label={__('Show empty categories', 'shoophilters')}
 							checked={attributes.showEmpty}
 							onChange={(val) =>
 								setAttributes({ showEmpty: val })
@@ -57,7 +44,7 @@ export default function Edit(props) {
 					</PanelRow>
 					<PanelRow>
 						<ToggleControl
-							label="Show child categories"
+							label={__('Show child categories', 'shoophilters')}
 							checked={attributes.showChildren}
 							onChange={(val) =>
 								setAttributes({ showChildren: val })
@@ -66,7 +53,7 @@ export default function Edit(props) {
 					</PanelRow>
 					<PanelRow>
 						<SelectControl
-							label="Show product count"
+							label={__('Show product count', 'shoophilters')}
 							value={attributes.showTotal}
 							onChange={(val) =>
 								setAttributes({ showTotal: val })
@@ -89,7 +76,7 @@ export default function Edit(props) {
 				{getSideControls()}
 				<div>
 					<ServerSideRender
-						block="woofilters/product-categories"
+						block="shoophilters/product-categories"
 						attributes={props.attributes}
 					/>
 				</div>

@@ -3,22 +3,22 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.woofilters-group {
+.shoophilters-group {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	width: 100%;
 }
 
-.woofilters-group .woofilters-group-checkbox:last-child {
+.shoophilters-group .shoophilters-group-checkbox:last-child {
 	border-radius: 0px 3px 3px 0px;
 }
 
-.woofilters-group .woofilters-group-checkbox:first-child {
+.shoophilters-group .shoophilters-group-checkbox:first-child {
 	border-radius: 3px 0px 0px 3px;
 }
 
-.woofilters-group .woofilters-group-checkbox {
+.shoophilters-group .shoophilters-group-checkbox {
 	margin: 0;
 	padding: 0;
 	border: 1px solid #2271b1;
@@ -32,7 +32,7 @@
 	color: #2271b1;
 }
 
-.woofilters-group-checkbox.active {
+.shoophilters-group-checkbox.active {
 	color: #fff;
 	background: #2271b1;
 }

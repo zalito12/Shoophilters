@@ -4,18 +4,12 @@
  *
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
- *
- * @link       http://example.com
- * @since      1.0.0
- *
- * @package    Woofilters
- * @subpackage Woofilters/includes
  */
 
-use GonGarceIO\WooFilters\Admin\Woofilters_Admin;
-use GonGarceIO\WooFilters\Includes\Woofilters_Block_Loader;
-use GonGarceIO\WooFilters\Includes\Woofilters_I18n;
-use GonGarceIO\WooFilters\Public\Woofilters_Public;
+use GonGarceIO\Shoophilters\Admin\Shoophilters_Admin;
+use GonGarceIO\Shoophilters\Includes\Shoophilters_Block_Loader;
+use GonGarceIO\Shoophilters\Includes\Shoophilters_I18n;
+use GonGarceIO\Shoophilters\Public\Shoophilters_Public;
 
 /**
  * The core plugin class.
@@ -27,20 +21,20 @@ use GonGarceIO\WooFilters\Public\Woofilters_Public;
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Woofilters
- * @subpackage Woofilters/includes
+ * @package    Shoophilters
+ * @subpackage Shoophilters/includes
  * @author     Your Name <email@example.com>
  */
-class Woofilters {
+class Shoophilters {
 
 	/**
 	 * The unique identifier of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $woofilters    The string used to uniquely identify this plugin.
+	 * @var      string    $shoophilters    The string used to uniquely identify this plugin.
 	 */
-	protected $woofilters;
+	protected $shoophilters;
 
 	/**
 	 * The current version of the plugin.
@@ -61,12 +55,12 @@ class Woofilters {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'WOOFILTERS_VERSION' ) ) {
-			$this->version = WOOFILTERS_VERSION;
+		if ( defined( 'SHOOPHILTERS_VERSION' ) ) {
+			$this->version = SHOOPHILTERS_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->woofilters = 'woofilters';
+		$this->shoophilters = 'shoophilters';
 
 		$this->load_dependencies();
 	}
@@ -76,10 +70,10 @@ class Woofilters {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Woofilters_Loader. Orchestrates the hooks of the plugin.
-	 * - Woofilters_i18n. Defines internationalization functionality.
-	 * - Woofilters_Admin. Defines all hooks for the admin area.
-	 * - Woofilters_Public. Defines all hooks for the public side of the site.
+	 * - Shoophilters_Loader. Orchestrates the hooks of the plugin.
+	 * - Shoophilters_i18n. Defines internationalization functionality.
+	 * - Shoophilters_Admin. Defines all hooks for the admin area.
+	 * - Shoophilters_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -92,7 +86,7 @@ class Woofilters {
 		/**
 		 * Global settings utilities.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/woofilters-settings.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/shoophilters-settings.php';
 	}
 
 	/**
@@ -101,18 +95,18 @@ class Woofilters {
 	 * @since    1.0.0
 	 */
 	public function run() {
-		$plugin_i18n = new Woofilters_I18n();
+		$plugin_i18n = new Shoophilters_I18n();
 		$plugin_i18n->load();
 
-		$plugin_public = new Woofilters_Public( $this->get_woofilters(), $this->get_version() );
+		$plugin_public = new Shoophilters_Public( $this->get_shoophilters(), $this->get_version() );
 		$plugin_public->load();
 
 		if ( is_admin() ) {
-			$plugin_admin = new Woofilters_Admin( $this->get_woofilters(), $this->get_version() );
+			$plugin_admin = new Shoophilters_Admin( $this->get_shoophilters(), $this->get_version() );
 			$plugin_admin->load();
 		}
 
-		$block_loader = new Woofilters_Block_Loader();
+		$block_loader = new Shoophilters_Block_Loader();
 		$block_loader->load();
 	}
 
@@ -123,8 +117,8 @@ class Woofilters {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_woofilters() {
-		return $this->woofilters;
+	public function get_shoophilters() {
+		return $this->shoophilters;
 	}
 
 	/**

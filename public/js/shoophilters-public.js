@@ -1,11 +1,11 @@
-/* global WOOFILTERS, jQuery */
+/* global SHOOPHILTERS, jQuery */
 (function ($) {
 	'use strict';
 
-	WOOFILTERS.DEBOUNCE_TIME = 650;
-	WOOFILTERS.MAX_HISTORY = 5;
+	SHOOPHILTERS.DEBOUNCE_TIME = 650;
+	SHOOPHILTERS.MAX_HISTORY = 5;
 
-	class WoofiltersManage {
+	class ShoophiltersManage {
 		ajaxCount = 0;
 		debounce = null;
 
@@ -17,10 +17,10 @@
 		groupsParams = {};
 
 		loadingDiv =
-			'<div class="woofilters-loading-container"><div class="woofilters-loading-image"></div></div>';
+			'<div class="shoophilters-loading-container"><div class="shoophilters-loading-image"></div></div>';
 		loading = false;
 		loadMoreButton =
-			'<div class="woofilters-load-more"><button data-url="%URL%">Load More</button></div>';
+			'<div class="shoophilters-load-more"><button data-url="%URL%">Load More</button></div>';
 
 		sliderValues = [0, 0];
 
@@ -49,7 +49,7 @@
 				return;
 			}
 
-			if (this.historyCache.length === WOOFILTERS.MAX_HISTORY) {
+			if (this.historyCache.length === SHOOPHILTERS.MAX_HISTORY) {
 				const entry = this.historyKeys.shift();
 				delete this.historyCache[entry];
 			}
@@ -111,7 +111,7 @@
 
 		initPriceRange(from) {
 			const that = this;
-			$('.woofilters-slider-range', from).each(function () {
+			$('.shoophilters-slider-range', from).each(function () {
 				const max = $(this).data('max'),
 					min = $(this).data('min'),
 					step = $(this).data('step');
@@ -153,7 +153,7 @@
 		updatePriceRangeLabel(slider, min, max) {
 			const symbol = $(slider).data('symbol');
 			const mask = $(slider).data('mask');
-			$('.woofilters-slider-range-label', slider).text(
+			$('.shoophilters-slider-range-label', slider).text(
 				`${mask.replace('%1$s', symbol).replace('%2$s', min)} -
 					${mask.replace('%1$s', symbol).replace('%2$s', max)}`
 			);
@@ -230,16 +230,16 @@
 		replaceResultCount(html) {
 			if (
 				!$(this.resultCountEl).length ||
-				!$('.woofilters-result-count', html).length
+				!$('.shoophilters-result-count', html).length
 			) {
 				return;
 			}
 
-			const resultCount = $('.woofilters-result-count', html)
+			const resultCount = $('.shoophilters-result-count', html)
 				.text()
 				.replace(
 					'-1',
-					$('.woofilters-result-count', html).data('last')
+					$('.shoophilters-result-count', html).data('last')
 				);
 
 			$(this.resultCountEl).text(resultCount);
@@ -262,9 +262,9 @@
 			if (this.loading) {
 				const loadingEl = $(this.loadingDiv);
 				loadingEl.appendTo('body');
-				$(document).trigger('woofilters:showLoading', loadingEl);
+				$(document).trigger('shoophilters:showLoading', loadingEl);
 			} else {
-				$('.woofilters-loading-container').remove();
+				$('.shoophilters-loading-container').remove();
 			}
 		}
 
@@ -311,7 +311,7 @@
 					this.debounce = setTimeout(() => {
 						this.ajaxCount++;
 						call();
-					}, WOOFILTERS.DEBOUNCE_TIME);
+					}, SHOOPHILTERS.DEBOUNCE_TIME);
 				}
 			}
 		}
@@ -368,7 +368,7 @@
 		}
 
 		getUrlWithParams(resetPagination = true) {
-			return WoofiltersManage.getUrlAppendParams(
+			return ShoophiltersManage.getUrlAppendParams(
 				window.location.origin + window.location.pathname,
 				this.searchParams,
 				resetPagination
@@ -376,7 +376,7 @@
 		}
 
 		getUrlWithGroupParams(group, resetPagination = true) {
-			return WoofiltersManage.getUrlAppendParams(
+			return ShoophiltersManage.getUrlAppendParams(
 				window.location.origin + window.location.pathname,
 				this.getGroupParams(group),
 				resetPagination
@@ -385,7 +385,7 @@
 
 		static getUrlAppendParams(url, params, resetPagination = true) {
 			url = resetPagination
-				? WoofiltersManage.getUrlWithoutPage(url)
+				? ShoophiltersManage.getUrlWithoutPage(url)
 				: url;
 			const newParams = new URLSearchParams(params);
 			if (newParams.has('page')) {
@@ -443,16 +443,17 @@
 		}
 
 		addAttributeFilterToParams(item) {
-			this.searchParams = WoofiltersManage.getAttributeFilterSearchParams(
-				item,
-				this.searchParams
-			);
+			this.searchParams =
+				ShoophiltersManage.getAttributeFilterSearchParams(
+					item,
+					this.searchParams
+				);
 		}
 
 		addAttributeFilterToGroup(group, item) {
 			this.setGroupParams(
 				group,
-				WoofiltersManage.getAttributeFilterSearchParams(
+				ShoophiltersManage.getAttributeFilterSearchParams(
 					item,
 					this.getGroupParams(group)
 				)
@@ -516,7 +517,7 @@
 			const currentParams = new URLSearchParams(window.location.search);
 
 			$('body')
-				.find('.woofilters-filter-group-' + group)
+				.find('.shoophilters-filter-group-' + group)
 				.each(function () {
 					const filter = $(this).data('filter');
 					if (filter) {
@@ -529,7 +530,7 @@
 					}
 				});
 
-			const url = WoofiltersManage.getUrlAppendParams(
+			const url = ShoophiltersManage.getUrlAppendParams(
 				window.location.origin + window.location.pathname,
 				currentParams,
 				true
@@ -541,39 +542,40 @@
 	}
 
 	$(function () {
-		const woofiltersManage = new WoofiltersManage(
-			WOOFILTERS.pagination.paginationType,
-			WOOFILTERS.pagination.scrollTo,
-			WOOFILTERS.selectors.resultCount,
-			WOOFILTERS.selectors.content,
-			WOOFILTERS.selectors.products,
-			WOOFILTERS.selectors.pagination,
-			WOOFILTERS.selectors.page,
-			WOOFILTERS.pagination.scrollToCustom
+		const shoophiltersManage = new ShoophiltersManage(
+			SHOOPHILTERS.pagination.paginationType,
+			SHOOPHILTERS.pagination.scrollTo,
+			SHOOPHILTERS.selectors.resultCount,
+			SHOOPHILTERS.selectors.content,
+			SHOOPHILTERS.selectors.products,
+			SHOOPHILTERS.selectors.pagination,
+			SHOOPHILTERS.selectors.page,
+			SHOOPHILTERS.pagination.scrollToCustom
 		);
 
-		woofiltersManage.lastUrl =
+		shoophiltersManage.lastUrl =
 			window.location.pathname + window.location.search;
-		woofiltersManage.setSearchParams(
+		shoophiltersManage.setSearchParams(
 			new URLSearchParams(window.location.search)
 		);
-		woofiltersManage.setPaginationState();
-		woofiltersManage.initPriceRange();
+		shoophiltersManage.setPaginationState();
+		shoophiltersManage.initPriceRange();
 
 		$(window).on('popstate', function () {
 			// if the state is the page you expect, pull the name and load it.
 			if (history.state && history.state.url) {
-				woofiltersManage.lastUrl = location.pathname + location.search;
-				const html = woofiltersManage.getHistoryCachePage(
+				shoophiltersManage.lastUrl =
+					location.pathname + location.search;
+				const html = shoophiltersManage.getHistoryCachePage(
 					history.state.url
 				);
 				if (html) {
-					woofiltersManage.replacePage(html);
+					shoophiltersManage.replacePage(html);
 				} else {
-					woofiltersManage.ajaxLoad(history.state.url, true, true);
+					shoophiltersManage.ajaxLoad(history.state.url, true, true);
 				}
 			} else if (
-				woofiltersManage.lastUrl !==
+				shoophiltersManage.lastUrl !==
 				location.pathname + location.search
 			) {
 				location.reload();
@@ -581,34 +583,34 @@
 		});
 
 		/* Ajax Infinite scroll button */
-		$('body').on('click', '.woofilters-load-more button', (e) => {
+		$('body').on('click', '.shoophilters-load-more button', (e) => {
 			const buttonEl = $(e.currentTarget);
-			woofiltersManage.loadInifiniteScrollPage(buttonEl.data('url'));
+			shoophiltersManage.loadInifiniteScrollPage(buttonEl.data('url'));
 		});
 
 		/* Ajax change page number */
-		$('body').on('click', woofiltersManage.pageEl, (e) => {
+		$('body').on('click', shoophiltersManage.pageEl, (e) => {
 			e.preventDefault();
 			const url = $(e.currentTarget).prop('href');
-			woofiltersManage.ajaxLoad(url, true);
+			shoophiltersManage.ajaxLoad(url, true);
 		});
 
 		/* Ajax Category filtering without button */
 		$('body').on(
 			'click',
-			'.woofilters-category-item.woofilters-filter-navigation-ajax a',
+			'.shoophilters-category-item.shoophilters-filter-navigation-ajax a',
 			(e) => {
 				e.preventDefault();
 				const url = $(e.currentTarget).prop('href');
 
-				woofiltersManage.ajaxLoad(url, true);
+				shoophiltersManage.ajaxLoad(url, true);
 			}
 		);
 
 		/* Ajax button category prevent link navigation */
 		$('body').on(
 			'click',
-			'.woofilters-category-item.woofilters-filter-navigation-button a',
+			'.shoophilters-category-item.shoophilters-filter-navigation-button a',
 			(e) => {
 				e.preventDefault();
 			}
@@ -617,11 +619,11 @@
 		/* Ajax button category navigation */
 		$('body').on(
 			'click',
-			'.woofilters-category-item.woofilters-filter-navigation-button',
+			'.shoophilters-category-item.shoophilters-filter-navigation-button',
 			(e) => {
 				//e.preventDefault();
 				const group = $(e.currentTarget).data('group');
-				woofiltersManage.addCategoryFilterToGroup(
+				shoophiltersManage.addCategoryFilterToGroup(
 					group,
 					e.currentTarget
 				);
@@ -631,12 +633,12 @@
 		/* Attribute filtering without ajax (page reload) */
 		$('body').on(
 			'click',
-			'.woofilters-attribute-item.woofilters-filter-navigation-standard',
+			'.shoophilters-attribute-item.shoophilters-filter-navigation-standard',
 			(e) => {
 				e.preventDefault();
 
-				woofiltersManage.addAttributeFilterToParams(e.currentTarget);
-				window.location = woofiltersManage.getUrlWithParams();
+				shoophiltersManage.addAttributeFilterToParams(e.currentTarget);
+				window.location = shoophiltersManage.getUrlWithParams();
 
 				return false;
 			}
@@ -645,12 +647,14 @@
 		/* Ajax Attribute filtering without button */
 		$('body').on(
 			'click',
-			'.woofilters-attribute-item.woofilters-filter-navigation-ajax',
+			'.shoophilters-attribute-item.shoophilters-filter-navigation-ajax',
 			(e) => {
 				e.preventDefault();
 
-				woofiltersManage.addAttributeFilterToParams(e.currentTarget);
-				woofiltersManage.ajaxLoad(woofiltersManage.getUrlWithParams());
+				shoophiltersManage.addAttributeFilterToParams(e.currentTarget);
+				shoophiltersManage.ajaxLoad(
+					shoophiltersManage.getUrlWithParams()
+				);
 
 				return false;
 			}
@@ -659,12 +663,12 @@
 		/* Attribute filtering with button */
 		$('body').on(
 			'click',
-			'.woofilters-attribute-item.woofilters-filter-navigation-button',
+			'.shoophilters-attribute-item.shoophilters-filter-navigation-button',
 			(e) => {
 				e.preventDefault();
 				const group = $(e.currentTarget).data('group');
 
-				woofiltersManage.addAttributeFilterToGroup(
+				shoophiltersManage.addAttributeFilterToGroup(
 					group,
 					e.currentTarget
 				);
@@ -674,29 +678,29 @@
 		);
 
 		/* Apply filters button */
-		$('body').on('click', '.woofilters-filter-button', (e) => {
+		$('body').on('click', '.shoophilters-filter-button', (e) => {
 			e.preventDefault();
 			const group = $(e.currentTarget).data('group');
 			if (!group) {
 				return;
 			}
 
-			woofiltersManage.ajaxLoad(
-				woofiltersManage.getUrlWithGroupParams(group)
+			shoophiltersManage.ajaxLoad(
+				shoophiltersManage.getUrlWithGroupParams(group)
 			);
 
 			return false;
 		});
 
 		/* Remove filters button */
-		$('body').on('click', '.woofilters-filter-remove-button', (e) => {
+		$('body').on('click', '.shoophilters-filter-remove-button', (e) => {
 			e.preventDefault();
 			const group = $(e.currentTarget).data('group');
 			if (!group) {
 				return;
 			}
 
-			woofiltersManage.resetGroupFiltersAndReload(group);
+			shoophiltersManage.resetGroupFiltersAndReload(group);
 
 			return false;
 		});
@@ -704,7 +708,7 @@
 		/* Order dropdown standard */
 		$('body').on(
 			'change',
-			'select.woofilters-orderby-select.woofilters-filter-navigation-standard',
+			'select.shoophilters-orderby-select.shoophilters-filter-navigation-standard',
 			(e) => {
 				$(e.currentTarget).closest('form').trigger('submit');
 			}
@@ -713,7 +717,7 @@
 		/* Order dropdown ajax */
 		$('body').on(
 			'change',
-			'select.woofilters-orderby-select.woofilters-filter-navigation-ajax',
+			'select.shoophilters-orderby-select.shoophilters-filter-navigation-ajax',
 			(e) => {
 				const selectEl = $(e.currentTarget);
 
@@ -721,9 +725,9 @@
 				const value = selectEl.val();
 
 				if (filter) {
-					woofiltersManage.setFilterOnParams(filter, value);
-					woofiltersManage.ajaxLoad(
-						woofiltersManage.getUrlWithParams()
+					shoophiltersManage.setFilterOnParams(filter, value);
+					shoophiltersManage.ajaxLoad(
+						shoophiltersManage.getUrlWithParams()
 					);
 				}
 			}
@@ -732,7 +736,7 @@
 		/* Order dropdown apply button */
 		$('body').on(
 			'change',
-			'select.woofilters-orderby-select.woofilters-filter-navigation-button',
+			'select.shoophilters-orderby-select.shoophilters-filter-navigation-button',
 			(e) => {
 				const selectEl = $(e.currentTarget);
 
@@ -741,7 +745,7 @@
 				const value = selectEl.val();
 
 				if (filter && group) {
-					woofiltersManage.setFilterOnGroup(group, filter, value);
+					shoophiltersManage.setFilterOnGroup(group, filter, value);
 				}
 			}
 		);
@@ -749,18 +753,18 @@
 		/* Order list standard */
 		$('body').on(
 			'click',
-			'li.woofilters-orderby-item.woofilters-filter-navigation-standard:not(.current) .woofilters-orderby-name',
+			'li.shoophilters-orderby-item.shoophilters-filter-navigation-standard:not(.current) .shoophilters-orderby-name',
 			(e) => {
 				const liEl = $(e.currentTarget).closest(
-					'li.woofilters-orderby-item'
+					'li.shoophilters-orderby-item'
 				);
 
 				const filter = liEl.data('filter');
 				const value = liEl.data('value');
 
-				if (filter && value !== woofiltersManage.getParam(filter)) {
-					woofiltersManage.setFilterOnParams(filter, value);
-					window.location = woofiltersManage.getUrlWithParams();
+				if (filter && value !== shoophiltersManage.getParam(filter)) {
+					shoophiltersManage.setFilterOnParams(filter, value);
+					window.location = shoophiltersManage.getUrlWithParams();
 				}
 			}
 		);
@@ -768,19 +772,19 @@
 		/* Order list ajax */
 		$('body').on(
 			'click',
-			'li.woofilters-orderby-item.woofilters-filter-navigation-ajax:not(.current) .woofilters-orderby-name',
+			'li.shoophilters-orderby-item.shoophilters-filter-navigation-ajax:not(.current) .shoophilters-orderby-name',
 			(e) => {
 				const liEl = $(e.currentTarget).closest(
-					'li.woofilters-orderby-item'
+					'li.shoophilters-orderby-item'
 				);
 
 				const filter = liEl.data('filter');
 				const value = liEl.data('value');
 
-				if (filter && value !== woofiltersManage.getParam(filter)) {
-					woofiltersManage.setFilterOnParams(filter, value);
-					woofiltersManage.ajaxLoad(
-						woofiltersManage.getUrlWithParams()
+				if (filter && value !== shoophiltersManage.getParam(filter)) {
+					shoophiltersManage.setFilterOnParams(filter, value);
+					shoophiltersManage.ajaxLoad(
+						shoophiltersManage.getUrlWithParams()
 					);
 				}
 			}
@@ -789,10 +793,10 @@
 		/* Order list button group */
 		$('body').on(
 			'click',
-			'li.woofilters-orderby-item.woofilters-filter-navigation-button .woofilters-item-radio-label',
+			'li.shoophilters-orderby-item.shoophilters-filter-navigation-button .shoophilters-item-radio-label',
 			(e) => {
 				const liEl = $(e.currentTarget).closest(
-					'li.woofilters-orderby-item'
+					'li.shoophilters-orderby-item'
 				);
 
 				const radio = $('input[type=radio]', liEl);
@@ -803,7 +807,7 @@
 				const value = liEl.data('value');
 
 				if (filter && group) {
-					woofiltersManage.setFilterOnGroup(group, filter, value);
+					shoophiltersManage.setFilterOnGroup(group, filter, value);
 				}
 			}
 		);

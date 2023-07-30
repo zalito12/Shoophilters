@@ -1,12 +1,11 @@
 <?php
 
-use GonGarceIO\WooFilters\Includes\Woofilters_Product_Query;
+use GonGarceIO\Shoophilters\Includes\Shoophilters_Product_Query;
 
-const WOOFILTERS_PA_PREFIX = 'pa_';
+const SHOOPHILTERS_PA_PREFIX = 'pa_';
 
 $show_empty = $attributes['showEmpty'];
 $show_count = $attributes['showTotal'];
-$style      = $attributes['style'];
 $row_size   = absint( $attributes['rowSize'] );
 $filtering  = $attributes['filtering'];
 
@@ -16,9 +15,9 @@ if ( ! isset( $attributes['taxonomy'] ) || empty( $attributes['taxonomy'] ) ) {
 	$name = $attributes['taxonomy'];
 
 	// Remove 'pa_' preffix if present.
-	$pos = strpos( $attributes['taxonomy'], WOOFILTERS_PA_PREFIX );
+	$pos = strpos( $attributes['taxonomy'], SHOOPHILTERS_PA_PREFIX );
 	if ( false !== $pos ) {
-		$name = substr_replace( $name, '', $pos, strlen( WOOFILTERS_PA_PREFIX ) );
+		$name = substr_replace( $name, '', $pos, strlen( SHOOPHILTERS_PA_PREFIX ) );
 	}
 
 	$filter_terms = array(
@@ -33,8 +32,8 @@ if ( ! isset( $attributes['taxonomy'] ) || empty( $attributes['taxonomy'] ) ) {
 		$terms = array();
 	}
 
-	$product_query = new Woofilters_Product_Query();
-	$counts        = $product_query->get_attribute_counts( WOOFILTERS_PA_PREFIX . $name );
+	$product_query = new Shoophilters_Product_Query();
+	$counts        = $product_query->get_attribute_counts( SHOOPHILTERS_PA_PREFIX . $name );
 
 	$filter_name     = 'filter_' . $name;
 	$filter_query    = 'query_type_' . $name;
@@ -43,13 +42,13 @@ if ( ! isset( $attributes['taxonomy'] ) || empty( $attributes['taxonomy'] ) ) {
 
 	$is_button = 'button' === $filtering['navigation'];
 	$group     = $filtering['group'];
-	$class     = 'woofilters-filter-navigation-' . $filtering['navigation'] . ' woofilters-filter-group-' . $filtering['group'];
+	$class     = 'shoophilters-filter-navigation-' . $filtering['navigation'] . ' shoophilters-filter-group-' . $filtering['group'];
 
 	if ( ! $show_empty && count( $counts ) === 0 ) :
 
 		?>
 		<div class="<?php echo esc_attr( $attributes['className'] ); ?>">
-			<span class="woofilters-attribute-empty <?php echo esc_attr( $class ); ?>"
+			<span class="shoophilters-attribute-empty <?php echo esc_attr( $class ); ?>"
 				data-group="<?php echo esc_attr( $group ); ?>"
 				data-value="<?php echo esc_attr( $term->slug ); ?>"
 				data-filter="<?php echo esc_attr( $filter_name ); ?>"
@@ -61,7 +60,7 @@ if ( ! isset( $attributes['taxonomy'] ) || empty( $attributes['taxonomy'] ) ) {
 	else :
 		?>
 	<div class="<?php echo esc_attr( $attributes['className'] ); ?>">
-		<ul class="woofilters-attributes-list <?php echo 'grid' === $style ? 'woofilters-grid' : ''; ?>">
+		<ul class="shoophilters-attributes-list shoophilters-grid">
 				<?php
 				foreach ( $terms as $term ) : // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 					$selected = in_array( $term->slug, $current_filters );
@@ -70,7 +69,7 @@ if ( ! isset( $attributes['taxonomy'] ) || empty( $attributes['taxonomy'] ) ) {
 						continue;
 					}
 					?>
-					<li class="woofilters-attribute-item <?php echo $selected ? 'current ' : ''; ?><?php echo esc_attr( $class ); ?>"
+					<li class="shoophilters-attribute-item <?php echo $selected ? 'current ' : ''; ?><?php echo esc_attr( $class ); ?>"
 						style="width: <?php echo esc_attr( $width ); ?>%"
 						data-group="<?php echo esc_attr( $group ); ?>"
 						data-value="<?php echo esc_attr( $term->slug ); ?>"
@@ -86,13 +85,13 @@ if ( ! isset( $attributes['taxonomy'] ) || empty( $attributes['taxonomy'] ) ) {
 							<?php
 							if ( 'always' === $show_count ) :
 								?>
-							<span class="woofilters-attribute-count">
+							<span class="shoophilters-attribute-count">
 									<?php echo esc_html( $count ); ?>
 							</span>
 								<?php
 							elseif ( 'current' === $show_count ) :
 								?>
-								<span class="woofilters-attribute-count woofilters-attribute-count-current">
+								<span class="shoophilters-attribute-count shoophilters-attribute-count-current">
 									<?php echo esc_html( $count ); ?>
 								</span>
 								<?php

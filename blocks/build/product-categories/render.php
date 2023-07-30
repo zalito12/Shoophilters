@@ -35,36 +35,36 @@ $current_cat = get_query_var( 'product_cat', '' );
 
 $is_button = 'button' === $filtering['navigation'];
 $group     = $filtering['group'];
-$class     = 'woofilters-filter-navigation-' . $filtering['navigation'] . ' woofilters-filter-group-' . $filtering['group'];
+$class     = 'shoophilters-filter-navigation-' . $filtering['navigation'] . ' shoophilters-filter-group-' . $filtering['group'];
 ?>
 <div class="<?php echo esc_attr( $attributes['className'] ); ?>">
-	<ul class="woofilters-category-list">
+	<ul class="shoophilters-category-list">
 		<?php foreach ( $categories as $category ) : ?>
-		<li class="woofilters-category-item <?php echo $category->slug === $current_cat ? 'current ' : ''; ?><?php echo esc_attr( $class ); ?>"
+		<li class="shoophilters-category-item <?php echo $category->slug === $current_cat ? 'current ' : ''; ?><?php echo esc_attr( $class ); ?>"
 			data-group="<?php echo esc_attr( $group ); ?>"
 			data-value="<?php echo esc_attr( $category->slug ); ?>"
 			data-filter="product_cat">
-			<div class="woofilters-item-radio-label">
+			<div class="shoophilters-item-radio-label">
 				<?php if ( $is_button ) : ?>
-					<input class="woofilters-radio-filter" type="radio"
-						name="woofilters-radio-category-<?php echo esc_attr( $filtering['group'] ); ?>"
+					<input class="shoophilters-radio-filter" type="radio"
+						name="shoophilters-radio-category-<?php echo esc_attr( $filtering['group'] ); ?>"
 						value="<?php echo esc_attr( $category->slug ); ?>"
 						<?php echo $category->slug === $current_cat ? 'checked' : ''; ?> />
-					<span class="woofilters-radio-filter-mark"></span>
+					<span class="shoophilters-radio-filter-mark"></span>
 				<?php endif; ?>
 				<a href="<?php echo esc_attr( get_term_link( $category->term_id, 'product_cat' ) ); ?>">
-					<span class="woofilters-category-name"><?php echo esc_html( $category->name ); ?></span>
+					<span class="shoophilters-category-name"><?php echo esc_html( $category->name ); ?></span>
 				</a>
 				<?php
 				if ( 'always' === $show_count ) :
 					?>
-					<span class="woofilters-category-count">
+					<span class="shoophilters-category-count">
 						<?php echo esc_html( $category->count ); ?>
 					</span>
 					<?php
 				elseif ( 'current' === $show_count ) :
 					?>
-					<span class="woofilters-category-count woofilters-category-count-current">
+					<span class="shoophilters-category-count shoophilters-category-count-current">
 						<?php echo esc_html( $category->count ); ?>
 					</span>
 					<?php

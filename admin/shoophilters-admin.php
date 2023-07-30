@@ -1,9 +1,9 @@
 <?php
 
-namespace GonGarceIO\WooFilters\Admin;
+namespace GonGarceIO\Shoophilters\Admin;
 
-use GonGarceIO\WooFilters\Admin\Pages\WooFilters_Page_Settings;
-use WooFilters_Settings;
+use GonGarceIO\Shoophilters\Admin\Pages\Shoophilters_Page_Settings;
+use Shoophilters_Settings;
 
 /**
  * The admin-specific functionality of the plugin.
@@ -11,20 +11,17 @@ use WooFilters_Settings;
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Woofilters
- * @subpackage Woofilters/admin
- * @author     Your Name <email@example.com>
  */
-class Woofilters_Admin {
+class Shoophilters_Admin {
 
 	/**
 	 * The ID of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $woofilters    The ID of this plugin.
+	 * @var      string    $shoophilters    The ID of this plugin.
 	 */
-	private $woofilters;
+	private $shoophilters;
 
 	/**
 	 * The version of this plugin.
@@ -39,12 +36,12 @@ class Woofilters_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string $woofilters       The name of this plugin.
+	 * @param      string $shoophilters       The name of this plugin.
 	 * @param      string $version    The version of this plugin.
 	 */
-	public function __construct( $woofilters, $version ) {
+	public function __construct( $shoophilters, $version ) {
 
-		$this->woofilters = $woofilters;
+		$this->shoophilters = $shoophilters;
 		$this->version    = $version;
 	}
 
@@ -66,7 +63,7 @@ class Woofilters_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->woofilters, plugin_dir_url( __FILE__ ) . 'css/woofilters-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->shoophilters, plugin_dir_url( __FILE__ ) . 'css/shoophilters-admin.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -75,7 +72,7 @@ class Woofilters_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->woofilters, plugin_dir_url( __FILE__ ) . 'js/woofilters-admin.js', array(), $this->version, false );
+		wp_enqueue_script( $this->shoophilters, plugin_dir_url( __FILE__ ) . 'js/shoophilters-admin.js', array(), $this->version, false );
 	}
 
 
@@ -85,20 +82,20 @@ class Woofilters_Admin {
 	 * @since 1.0.0
 	 */
 	public function create_menu() {
-		$settings_page = new WooFilters_Page_Settings();
+		$settings_page = new Shoophilters_Page_Settings();
 
 		$hook_page = add_options_page(
 			$settings_page::get_page_title(),
 			$settings_page::get_menu_title(),
 			$settings_page::get_capability(),
 			$settings_page::get_slug(),
-			array( 'GonGarceIO\WooFilters\Admin\WooFilters_Page_Factory', 'render' ),
+			array( 'GonGarceIO\Shoophilters\Admin\Shoophilters_Page_Factory', 'render' ),
 			50
 		);
 		add_action(
 			"load-$hook_page",
 			function() use ( $settings_page ) {
-				WooFilters_Page_Factory::load( $settings_page );
+				Shoophilters_Page_Factory::load( $settings_page );
 			}
 		);
 	}
@@ -108,8 +105,8 @@ class Woofilters_Admin {
 	 */
 	public function register_settings() {
 		// Register settings array for pagination section.
-		register_setting( WooFilters_Page_Settings::get_slug(), WooFilters_Settings::OPTION_PAGINATION );
+		register_setting( Shoophilters_Page_Settings::get_slug(), Shoophilters_Settings::OPTION_PAGINATION );
 		// Register settings array for section subscribe.
-		register_setting( WooFilters_Page_Settings::get_slug(), WooFilters_Settings::OPTION_SELECTORS );
+		register_setting( Shoophilters_Page_Settings::get_slug(), Shoophilters_Settings::OPTION_SELECTORS );
 	}
 }

@@ -1,21 +1,21 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "woofilters/product-price",
+  "name": "shoophilters/product-price",
   "version": "0.1.0",
-  "title": "Woofilters: Product price filter",
-  "category": "woofilters",
+  "title": "Shoophilters: Product price filter",
+  "category": "shoophilters",
   "icon": "money-alt",
   "description": "Add price filters for your shop",
   "keywords": [
-    "Woofilters",
+    "Shoophilters",
     "WooCommerce",
     "Price"
   ],
   "supports": {
     "html": false
   },
-  "textdomain": "woofilters",
+  "textdomain": "shoophilters",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

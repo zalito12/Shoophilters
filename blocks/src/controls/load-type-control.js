@@ -28,24 +28,24 @@ const options = [
 /**
  * LoadTypeControl component.
  *
- * @param root0
- * @param root0.attributes
- * @param root0.onChange
+ * @param {LoadTypeControl} root0            The root.
+ * @param {Array}           root0.attributes Attributes.
+ * @param {Function}        root0.onChange   On change callback.
  */
 const LoadTypeControl = ({ attributes, onChange = () => void 0 }) => {
 	const { navigation, group } = attributes;
 
 	return (
 		<PanelBody
-			title={__('Filtering settings', 'woofilters')}
+			title={__('Filtering settings', 'shoophilters')}
 			initialOpen={true}
 		>
 			<PanelRow>
 				<SelectControl
-					label={__('Filter navigation type', 'woofilters')}
+					label={__('Filter navigation type', 'shoophilters')}
 					help={__(
 						'Choose between url navigation, ajax navigation or delegate filters to a button.',
-						'woofilters'
+						'shoophilters'
 					)}
 					value={navigation}
 					onChange={(val) => onChange({ navigation: val, group })}
@@ -54,10 +54,10 @@ const LoadTypeControl = ({ attributes, onChange = () => void 0 }) => {
 			</PanelRow>
 			<PanelRow>
 				<TextControl
-					label={__('Filter group id', 'woofilters')}
+					label={__('Filter group id', 'shoophilters')}
 					help={__(
 						'The filter group id to apply. All filters in the same group will be applied and reseted at the same time.',
-						'woofilters'
+						'shoophilters'
 					)}
 					type="text"
 					value={group}

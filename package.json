@@ -1,7 +1,7 @@
 {
-	"name": "woofilters",
+	"name": "shoophilters",
 	"version": "0.2.0",
-	"description": "Woofilters blocks to extend default woocomerce filter fields.",
+	"description": "Shoophilters blocks to extend default woocomerce filter fields.",
 	"author": "The WordPress Contributors",
 	"license": "GPL-2.0-or-later",
 	"scripts": {

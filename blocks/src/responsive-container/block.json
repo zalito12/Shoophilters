@@ -1,17 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "woofilters/responsive-container",
+	"name": "shoophilters/responsive-container",
 	"version": "0.1.0",
-	"title": "Woofilters: Responsive container",
-	"category": "woofilters",
+	"title": "Shoophilters: Responsive container",
+	"category": "shoophilters",
 	"icon": "smartphone",
 	"description": "A configurable container to change visibility with screen size",
-	"keywords": ["Woofilters", "WooCommerce", "Container", "Responsive"],
+	"keywords": ["Shoophilters", "WooCommerce", "Container", "Responsive"],
 	"supports": {
 		"html": false
 	},
-	"textdomain": "woofilters",
+	"textdomain": "shoophilters",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

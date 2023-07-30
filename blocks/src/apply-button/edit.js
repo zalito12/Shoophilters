@@ -28,15 +28,15 @@ export default function Edit(props) {
 		return (
 			<InspectorControls>
 				<PanelBody
-					title={__('Button settings', 'woofilters')}
+					title={__('Button settings', 'shoophilters')}
 					initialOpen={true}
 				>
 					<PanelRow>
 						<TextControl
-							label={__('Filter group id', 'woofilters')}
+							label={__('Filter group id', 'shoophilters')}
 							help={__(
 								'The filter group id to apply. All filters in the same group will be applied when button clicked',
-								'woofilters'
+								'shoophilters'
 							)}
 							type="text"
 							value={attributes.group}
@@ -47,7 +47,7 @@ export default function Edit(props) {
 					</PanelRow>
 					<PanelRow>
 						<ToggleControl
-							label="Use plain text"
+							label={__('Use plain text', 'shoophilters')}
 							checked={'text' === attributes.type}
 							onChange={(val) =>
 								setAttributes({ type: val ? 'text' : 'button' })
@@ -56,7 +56,7 @@ export default function Edit(props) {
 					</PanelRow>
 					<PanelRow>
 						<TextControl
-							label={__('Button text', 'woofilters')}
+							label={__('Button text', 'shoophilters')}
 							type="text"
 							value={attributes.text}
 							onChange={(val) => setAttributes({ text: val })}
@@ -72,11 +72,11 @@ export default function Edit(props) {
 			<Fragment>
 				{getSideControls()}
 				{'button' === attributes.type ? (
-					<button className={`woofilters-filter-button`}>
+					<button className={`shoophilters-filter-button`}>
 						{attributes.text}
 					</button>
 				) : (
-					<span className={`woofilters-filter-button`}>
+					<span className={`shoophilters-filter-button`}>
 						{attributes.text}
 					</span>
 				)}
