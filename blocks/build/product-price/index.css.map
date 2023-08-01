@@ -1,1 +1,0 @@
-{"version":3,"file":"product-price/index.css","mappings":";;;AAAA;EACC;EACA;EACA;AACD,C","sources":["webpack://shoophilters/./blocks/src/product-price/editor.scss"],"sourcesContent":[".shoophilters-slider-range {\n\tposition: relative;\n\tmin-height: 2em;\n\tbackground: #aaa;\n}\n"],"names":[],"sourceRoot":""}

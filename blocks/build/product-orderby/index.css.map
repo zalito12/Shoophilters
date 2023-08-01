@@ -1,1 +1,0 @@
-{"version":3,"file":"product-orderby/index.css","mappings":";;;AAAA;EACC;EACA;AACD,C","sources":["webpack://shoophilters/./blocks/src/product-orderby/editor.scss"],"sourcesContent":[".shoophilters-orderby {\n\tlist-style: none;\n\tmargin: 0;\n}\n"],"names":[],"sourceRoot":""}

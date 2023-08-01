@@ -64,7 +64,7 @@ class Shoophilters_Public {
 		wp_enqueue_style( $this->shoophilters, plugin_dir_url( __FILE__ ) . 'css/shoophilters-public.css', array( 'jquery-ui' ), $this->version );
 		wp_enqueue_style(
 			'jquery-ui',
-			'http://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.css',
+			'https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.css',
 			array(),
 			'1.13.2'
 		);
